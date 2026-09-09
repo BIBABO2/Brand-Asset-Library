@@ -1,9 +1,7 @@
 # ABOUT GAGGENAU
 
-![Gaggenau 官方标识](ABOUT_GAGGENAU_media/Logo_Gaggenau_black.png)
-
-<small style="color:#888">图：Gaggenau 官方标识。图源：Gaggenau 官网素材库。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/Logo_Gaggenau_black.png" alt="Gaggenau 官方标识"></p>
+<p align="center"><small style="color:#888">图：Gaggenau 官方标识。图源：Gaggenau 官网素材库。</small></p>
 ## 01 开篇
 
 在法国 Lipsheim 的工厂里，有一款烤箱的日产量通常不超过个位数。它不是限量纪念款，而是 Gaggenau 的常规产品 EB 333：门板由一整片 3 毫米厚的不锈钢板制成，门体里叠了五层玻璃，整扇门重 20 公斤；炉腔在 485℃ 下自我清洁时，门的外表面仍能保持凉感，人可以放心地把手贴上去。
@@ -27,60 +25,46 @@ Gaggenau 是德国超高端嵌入式厨电品牌，1995 年起隶属博西家电
 | 核心业务 | 烤箱与蒸烤箱、Vario 模块化灶具、排烟、冷藏与酒柜、咖啡机、洗碗机、保温与真空抽屉 |
 | 经典产品 | EB 333 烤箱、Vario 400 灶具系统、ED 220 蒸烤箱、CX 492 全表面感应灶、IK 300 对开门冰箱、Expressive / Minimalistic 系列 |
 
-![EB 333 正面，门板由一整片不锈钢构成](ABOUT_GAGGENAU_media/EB333610_official_shot01.jpg)
-
-<small style="color:#888">图：EB 333 官方产品图，90 公分一体式不锈钢门面。图源：BSH 官方媒体素材（Gaggenau EB333110 产品页）。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/EB333610_official_shot01.jpg" alt="EB 333 正面，门板由一整片不锈钢构成"></p>
+<p align="center"><small style="color:#888">图：EB 333 官方产品图，90 公分一体式不锈钢门面。图源：BSH 官方媒体素材（Gaggenau EB333110 产品页）。</small></p>
 ## 03 Brand 品牌：从铁钉作坊到"厨房的灵魂"
 
 ### 材料线索：从铁钉到蓝色炉腔
 
 1683 年，黑森林边缘还是一群世代贫苦的农民。当地领主、巴登藩侯路德维希·威廉想给农民找一条生路，于是做了一件事：在 Rotenfels 建冶炼工坊，在 Gaggenau 村建锤锻与制钉作坊。公司最早的产品，是铁钉和铁锤。
 
-![1683 年公司徽章草图](ABOUT_GAGGENAU_media/H1683_emblem.jpg)
-
-<small style="color:#888">图：官方历史页中的 1683 年公司徽章草图。图源：Gaggenau 官方品牌历史页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/H1683_emblem.jpg" alt="1683 年公司徽章草图"></p>
+<p align="center"><small style="color:#888">图：官方历史页中的 1683 年公司徽章草图。图源：Gaggenau 官方品牌历史页。</small></p>
 作坊随后从五金工具进入农用机械，又因为一项手艺找到了自己的位置：搪瓷。Gaggenau 一度为 Odol、Maggi、Stollwerck 等品牌制作耐用的搪瓷广告招牌。这项技术后来沉淀成烤箱的耐高温珐琅内壁，再演变为今天那抹标志性的蓝色炉腔。从广告招牌延伸到烹饪表面，这条材料线索被同一家公司保存了三百年，这在行业里几乎是独一份的连续性。
 
-![搪瓷年代：1880 年前后的材料起点](ABOUT_GAGGENAU_media/H1880_enamel.jpg)
-
-<small style="color:#888">图：官方历史页时间线的搪瓷主题图，蓝色炉腔的远祖。图源：Gaggenau 官方品牌历史页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/H1880_enamel.jpg" alt="搪瓷年代：1880 年前后的材料起点"></p>
+<p align="center"><small style="color:#888">图：官方历史页时间线的搪瓷主题图，蓝色炉腔的远祖。图源：Gaggenau 官方品牌历史页。</small></p>
 它甚至造过自行车。到 1908 年，Gaggenau 累计卖出 25 万辆 "Badenia" 自行车。官方历史认为，这段经历让公司记住了三件事：人机工学、制造品质、有辨识度的设计。这三个词后来几乎可以概括 Gaggenau 的一切。
 
-![1908 年 Badenia 自行车广告海报](ABOUT_GAGGENAU_media/H1908_bicycle_poster.jpg)
-
-<small style="color:#888">图：1908 年 Badenia 自行车广告海报。图源：Gaggenau 官方品牌历史页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/H1908_bicycle_poster.jpg" alt="1908 年 Badenia 自行车广告海报"></p>
+<p align="center"><small style="color:#888">图：1908 年 Badenia 自行车广告海报。图源：Gaggenau 官方品牌历史页。</small></p>
 ### von Blanquet 家族与"嵌入式"革命
 
 真正把 Gaggenau 送上厨电路线的，是 von Blanquet 家族。Otto von Blanquet 接手后，公司把全部精力转向燃煤与燃气炉灶；1940 年代末开始生产经济实用的燃气炉，也第一次制造电烤箱，约 180 名工人参与生产 "Favorit" 与 "Futura" 型号。
 
 转折发生在其子 Georg von Blanquet 手里。Georg 是痴迷烹饪的业余厨师，他对公司有一条近乎苛刻的要求：新功能必须先证明对厨师有用，必须扛得住真正的厨房，还必须好看。1956 年，Gaggenau 把第一台齐眼高的嵌入式烤箱、分体式灶具与通风电器带上了市场。今天看来理所当然的"嵌入式厨房"，在当时是把整个行业从"一件大家具"推向"一套系统"。
 
-![1956 年嵌入式烤箱与 Georg von Blanquet](ABOUT_GAGGENAU_media/H1956_georg_blanquet.jpg)
-
-<small style="color:#888">图：官方历史页时间线的 1956 年图，嵌入式厨房的起点。图源：Gaggenau 官方品牌历史页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/H1956_georg_blanquet.jpg" alt="1956 年嵌入式烤箱与 Georg von Blanquet"></p>
+<p align="center"><small style="color:#888">图：官方历史页时间线的 1956 年图，嵌入式厨房的起点。图源：Gaggenau 官方品牌历史页。</small></p>
 1960 年代末，Gaggenau 请人设计了沿用至今的标识。官方历史很坦白：这款标识和产品一样受包豪斯影响，"Form follows function"从此成为核心信念。对一家从铁匠铺走来的公司来说，这是它第一次把自己明确放进现代主义设计史。
 
 ### 系统思维：Vario 与 90 公分的烤箱
 
 1970 年代初，第一批 28 公分宽的 Vario 灶具出现，旋钮装在台面以上；1976 年前后，Gaggenau 又把下吸式排烟引入欧洲市场。别人做一整台灶，它开始做可以自由拼装的"零件"。这种系统思维后来成为它区别于所有对手的底层结构。
 
-![1970 年代 Vario 前身](ABOUT_GAGGENAU_media/H1970s_vario_forerunner.jpg)
-
-<small style="color:#888">图：官方历史页中的 1970 年代 Vario 前身。图源：Gaggenau 官方品牌历史页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/H1970s_vario_forerunner.jpg" alt="1970 年代 Vario 前身"></p>
+<p align="center"><small style="color:#888">图：官方历史页中的 1970 年代 Vario 前身。图源：Gaggenau 官方品牌历史页。</small></p>
 1986 年是另一个分水岭：第一台 90 公分宽的烤箱进入欧洲市场，净容积 87 升，能同时放下四份烤肉。它是 Georg von Blanquet 的个人项目，灵感来自宽大厚实的美国整体炉灶，目标是让欧洲家庭也拥有"同时处理好几道菜"的体量。官方历史给它的评语很简短："很快就获得了 cult 般的地位。"此后这个词不断被用来描述这款烤箱——它从诞生起就不是大众商品，而是少数人认出的"圈子符号"。
 
 <small style="color:#888">术语注释：cult——产品在小众圈层中被狂热追捧、近乎信仰的地位。</small>
 
-![1986 年第一台 90 公分烤箱 EB 300](ABOUT_GAGGENAU_media/H1986_eb300.jpg)
-
-<small style="color:#888">图：官方历史页中的 1986 年 EB 300。图源：Gaggenau 官方品牌历史页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/H1986_eb300.jpg" alt="1986 年第一台 90 公分烤箱 EB 300"></p>
+<p align="center"><small style="color:#888">图：官方历史页中的 1986 年 EB 300。图源：Gaggenau 官方品牌历史页。</small></p>
 这里有一个值得研究者注意的细节：这台烤箱最初的型号名，官方自己的口径并不统一——EB 333 产品页的时间轴写 1986 年推出的是 EB 374，同页正文称其为 EB 375，公司史料又习惯用 EB 300 称呼整条产品线。可确证的只有：1986 年、90 公分宽、以美式炉灶为灵感、在欧洲市场没有先例，以及它后来三十多年几乎未做大改的生命力。
 
 ### 冷藏：IK 300 与美式启发的重做
@@ -178,48 +162,38 @@ Gaggenau 的产品组合看似庞杂，内部其实是一套清晰的层级：�
 
 ### EB 333（2016）：90 公分的一扇门
 
-![EB 333 标志性整机](ABOUT_GAGGENAU_media/P_EB333_iconic.jpg)
-
-<small style="color:#888">图：EB 333 一体式门面官方主图（2400px）。图源：Gaggenau EB333 官方落地页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/P_EB333_iconic.jpg" alt="EB 333 标志性整机"></p>
+<p align="center"><small style="color:#888">图：EB 333 一体式门面官方主图（2400px）。图源：Gaggenau EB333 官方落地页。</small></p>
 EB 333 的故事要从 1986 年讲起。时任掌舵人 Georg von Blanquet 从宽大厚实的美式整体炉灶获得灵感，想把那种"一次处理四份烤肉"的体量感搬进欧洲家庭。这款 90 公分烤箱以净容积 87 升进入市场，官方历史只用了"很快获得 cult 地位"来概括它的命运。它的设计超前到如此程度，以至于此后三十多年几乎没有需要改动的地方。
 
 <small style="color:#888">术语注释：cult——产品在小众圈层中被狂热追捧、近乎信仰的地位。</small>
 
 2016 年，恰逢品牌 333 周年，Gaggenau 推出向 EB 300 致敬的 EB 333，并专门拍摄了记录它诞生的影片。今天的 EB 333 有 17 种加热方式，温区从 30℃ 覆盖到 300℃：38℃ 发酵面团、250℃ 用烘焙石烤面包、300℃ 给肉上色、485℃ 高温自清洁。设计负责人 Sven Baacke 说它"正好站在传承与未来的中间点上"。
 
-![EB 333 于 2016 年发布](ABOUT_GAGGENAU_media/P_EB333_2016_carousel.jpg)
-
-<small style="color:#888">图：EB 333 2016 年发布轮播图。图源：Gaggenau EB333 官方落地页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/P_EB333_2016_carousel.jpg" alt="EB 333 于 2016 年发布"></p>
+<p align="center"><small style="color:#888">图：EB 333 2016 年发布轮播图。图源：Gaggenau EB333 官方落地页。</small></p>
 官方产品页：<https://www.gaggenau.com/global/appliances/ovens/eb-333>
 
 ### 型号迭代：从 EB 374 到 EB 333
 
 研究 EB 333 最好的方式，是看它在官方页面里留下的代际证据：1986 年 EB 374（史料亦写作 EB 375 / EB 300）、1989 年 EB 378、1997 年 EB 388、2004 年 EB 388 改款、2016 年 EB 333。每一代都保持 90 公分宽度与整片金属门面，变的只是内部加热系统、界面和表面细节——这种"外壳稳定、内核换代"的节奏，是高端厨电里罕见的产品定义策略。
 
-![1989 年 EB 378](ABOUT_GAGGENAU_media/P_EB378_1989.jpg)
-![1997 年 EB 388](ABOUT_GAGGENAU_media/P_EB388_1997.jpg)
-![2004 年 EB 388 改款](ABOUT_GAGGENAU_media/P_EB388_2004.jpg)
-
-<small style="color:#888">图（从左至右）：官方落地页时间轴中的 EB 378（1989）、EB 388（1997）与 EB 388 改款（2004）。图源：Gaggenau EB333 官方落地页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/P_EB378_1989.jpg" alt="1989 年 EB 378"></p>
+<p align="center"><img src="ABOUT_GAGGENAU_media/P_EB388_1997.jpg" alt="1997 年 EB 388"></p>
+<p align="center"><img src="ABOUT_GAGGENAU_media/P_EB388_2004.jpg" alt="2004 年 EB 388 改款"></p>
+<p align="center"><small style="color:#888">图：官方落地页时间轴中的三款前代机型（依次为 EB 378、EB 388 与 EB 388 改款）。图源：Gaggenau EB333 官方落地页。</small></p>
 ### ED 220（1999）：第一次把蒸烤箱带回家
 
-![ED 220 蒸烤箱（1999）](ABOUT_GAGGENAU_media/H1999_ed220.jpg)
-
-<small style="color:#888">图：官方历史页中的 1999 年 ED 220。图源：Gaggenau 官方品牌历史页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/H1999_ed220.jpg" alt="ED 220 蒸烤箱（1999）"></p>
+<p align="center"><small style="color:#888">图：官方历史页中的 1999 年 ED 220。图源：Gaggenau 官方品牌历史页。</small></p>
 1999 年之前，蒸烤箱主要是专业厨房的设备；Gaggenau 决定把它搬进家庭。据官方资料，ED 220 是全球第一台为家庭厨房工业化生产的蒸烤箱：可接水管连续供水，用蒸汽配合热风实现低温慢煮与健康烹饪。研发过程与专业厨师紧密合作，包括米其林三星主厨 Marc Haeberlin——他在阿尔萨斯拥有传奇餐厅 Auberge de l'Ill，对蒸制的理解直接进入产品定义。
 
 这一决策在当时是冒险的：蒸汽烹饪对西方家庭陌生，用户需要学习新的操作方式。Gaggenau 赌的是健康烹饪会变成家用需求。二十多年后回看，这一赌成了——蒸烤箱成为高端厨电的标准品类，ED 220 的定义方式（接水管、专业厨师参与、健康叙事）也被同行反复沿用。
 
 ### IK 300（1990）：把美式对开门翻译成自己的语言
 
-![IK 300 对开门冰箱（1990）](ABOUT_GAGGENAU_media/H1990_ik300.jpg)
-
-<small style="color:#888">图：官方历史页中的 1990 年 IK 300。图源：Gaggenau 官方品牌历史页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/H1990_ik300.jpg" alt="IK 300 对开门冰箱（1990）"></p>
+<p align="center"><small style="color:#888">图：官方历史页中的 1990 年 IK 300。图源：Gaggenau 官方品牌历史页。</small></p>
 在烤箱之外，Gaggenau 用同样的方法处理过制冷。IK 300 受宽大的美式独立对开门冰箱启发，把冷藏与冷冻分成两个独立空间，各开各的门，配五个气候区和手动湿度控制，还有一台透明冰块机。它的意义不在冰箱本身，而在方法：Gaggenau 不做"美国产品的德国翻版"，而是先研究透某类产品的用户场景，再按自己的标准重做。后来的 Vario 400 冷藏系列与酒柜，都是这条路的延续。
 
 ### Vario 400（2012）：模块化的灶具系统
@@ -228,30 +202,22 @@ Vario 是 Gaggenau 自由度主张的载体。它不卖"一台灶"，而卖可�
 
 ### CX 492（2020）：全表面感应灶
 
-![CX 492 全表面感应灶](ABOUT_GAGGENAU_media/CX492_architonic_hero.jpg)
-
-<small style="color:#888">图：CX 492 全表面感应灶产品图。图源：Architonic 产品档案（收录 Gaggenau 官方图）。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/CX492_architonic_hero.jpg" alt="CX 492 全表面感应灶"></p>
+<p align="center"><small style="color:#888">图：CX 492 全表面感应灶产品图。图源：Architonic 产品档案（收录 Gaggenau 官方图）。</small></p>
 CX 492 是这条路的极致：2020 年推出的 90 公分全表面感应灶，约 3200 平方厘米的台面全部是加热区，锅具放在哪里就在哪里加热，可同时容纳四只锅，不同形状的锅具无需对准区域。它的创新点不在"更大的灶"，而在重新定义了人与台面的关系——锅不再被区域约束。
 
-![400 系列灶具家族场景](ABOUT_GAGGENAU_media/Cooktop400_architonic_family.jpg)
-
-<small style="color:#888">图：400 系列灶具家族场景（非特定型号）。图源：Architonic 产品档案。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/Cooktop400_architonic_family.jpg" alt="400 系列灶具家族场景"></p>
+<p align="center"><small style="color:#888">图：400 系列灶具家族场景（非特定型号）。图源：Architonic 产品档案。</small></p>
 ### Expressive 系列（2024）：雕塑宣告存在
 
 2020 年代中期，Gaggenau 在近二十年来首个全新嵌入式系列中一次给出两个方向。Expressive 灵感来自包豪斯与极简现代建筑，用雕塑感的双重边框把电器框出来，官方概括为"两框一圆，一件艺术品"：外框接住橱柜，内框托起烟熏玻璃与不锈钢的 passepartout，60 或 76 公分宽，凸出安装。
 
 <small style="color:#888">术语注释：passepartout——画框式衬板，此处指烟熏玻璃与不锈钢构成的内框。</small>
 
-![76 公分 Expressive 蒸烤箱的金属外壳](ABOUT_GAGGENAU_media/F_expressive_metal_skin.jpg)
-
-<small style="color:#888">图：Lipsheim 工厂中 76 公分 Expressive 蒸烤箱的抛光金属外壳。图源：Gaggenau 官方 Behind the scenes 页面。</small>
-
-![Minimalistic 系列](ABOUT_GAGGENAU_media/Minimalistic_identity_01.jpg)
-
-<small style="color:#888">图：Minimalistic 系列官方宣传图。图源：identity 杂志刊发的 Gaggenau 官方素材。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/F_expressive_metal_skin.jpg" alt="76 公分 Expressive 蒸烤箱的金属外壳"></p>
+<p align="center"><small style="color:#888">图：Lipsheim 工厂中 76 公分 Expressive 蒸烤箱的抛光金属外壳。图源：Gaggenau 官方 Behind the scenes 页面。</small></p>
+<p align="center"><img src="ABOUT_GAGGENAU_media/Minimalistic_identity_01.jpg" alt="Minimalistic 系列"></p>
+<p align="center"><small style="color:#888">图：Minimalistic 系列官方宣传图。图源：identity 杂志刊发的 Gaggenau 官方素材。</small></p>
 ### Minimalistic 系列（2025）：用消失证明力量
 
 Minimalistic 则走向反面：无把手，显示器藏在烟熏玻璃后直到被激活才亮起，整块表面上唯一可见的功能件是一个由实心不锈钢铣出的圆形调节环，比例经过黄金分割推敲。交互设计师 Sören Strayle 解释保留实体环的用意：圆形是所有文化都认识的形状，人会本能地转动它，触感"几乎像一件珠宝"。
@@ -272,96 +238,70 @@ Gaggenau 的美学常被一句话打发——"不锈钢和贵"。但它的审美
 
 ### 蓝：从招牌到炉腔的颜色叙事
 
-![EB 333 蓝色珐琅炉腔](ABOUT_GAGGENAU_media/P_EB333_enamel_interior.jpg)
-
-<small style="color:#888">图：EB 333 的蓝色珐琅炉腔。图源：Gaggenau EB333 官方落地页（文件名 stage_eb_333_oven_enamel）。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/P_EB333_enamel_interior.jpg" alt="EB 333 蓝色珐琅炉腔"></p>
+<p align="center"><small style="color:#888">图：EB 333 的蓝色珐琅炉腔。图源：Gaggenau EB333 官方落地页（文件名 stage_eb_333_oven_enamel）。</small></p>
 品牌色通常出现在 Logo 或包装上，Gaggenau 却把最有辨识度的颜色放在炉腔里。这层蓝是搪瓷工艺的视觉结果，能追到 19 世纪的广告招牌。对用户而言，每次打开炉门都会看到它；对品牌而言，它把"材料历史"变成了"日常视觉"。蓝色珐琅在高温下稳定、耐刮、易清洁，颜色本身不是装饰，而是工艺可以被看见的证据——这是美学与工程在同一处汇合的范例。
 
 ### 熄灭的界面与圆
 
-![EB 333 TFT 显示屏](ABOUT_GAGGENAU_media/P_EB333_tft.jpg)
-
-<small style="color:#888">图：EB 333 的 TFT 显示屏界面。图源：Gaggenau EB333 官方落地页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/P_EB333_tft.jpg" alt="EB 333 TFT 显示屏"></p>
+<p align="center"><small style="color:#888">图：EB 333 的 TFT 显示屏界面。图源：Gaggenau EB333 官方落地页。</small></p>
 Gaggenau 对"显示"的态度值得单独解读。Minimalistic 系列的显示器藏在烟熏玻璃后，待机时整面面板只有金属与玻璃；人靠近时，屏幕才被接近感应唤醒。把"科技"藏起来、让界面主动退场，是它理解奢华的方式——信息不是被炫耀的，而是被调用的。圆环与旋钮承担了相反的职能：它们必须被看见、被触摸。一隐一显之间，品牌把"克制"做成了交互上的节奏。
 
-![伦敦展厅](ABOUT_GAGGENAU_media/P_ShowroomLondon.jpg)
-
-<small style="color:#888">图：Gaggenau 伦敦展厅。图源：Gaggenau EB333 官方落地页（Showroom London）。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/P_ShowroomLondon.jpg" alt="伦敦展厅"></p>
+<p align="center"><small style="color:#888">图：Gaggenau 伦敦展厅。图源：Gaggenau EB333 官方落地页（Showroom London）。</small></p>
 ### 空间、光线与装置
 
 展厅是 Gaggenau 美学的完整载体：产品嵌进真实厨房，光线经过设计，门可以被打开、旋钮可以被转动。2026 年米兰设计周，它在 Villa Necchi Campiglio 的 Presence 装置把新系列放进 1930 年代别墅的空间里，让电器与历史建筑对话。这类做法的美学功能不是展示机器，而是演示"设备退场后，空间还剩什么"。
 
-![2026 米兰 Presence 装置](ABOUT_GAGGENAU_media/Presence_2026_ifdm_01.jpg)
-
-<small style="color:#888">图：Gaggenau Presence 装置现场（Villa Necchi Campiglio，2026 米兰设计周）。图源：ifdm.design 现场报道。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/Presence_2026_ifdm_01.jpg" alt="2026 米兰 Presence 装置"></p>
+<p align="center"><small style="color:#888">图：Gaggenau Presence 装置现场（Villa Necchi Campiglio，2026 米兰设计周）。图源：ifdm.design 现场报道。</small></p>
 评价：Gaggenau 的美学本质是"为在场者设计的安静"。它不靠鲜艳色彩或夸张造型夺取注意力，而是用材料厚度、表面触感和比例关系建立存在感。这种美学与它的目标场景高度匹配——在豪宅厨房里，设备越是安静，厨房越像客厅。
 
 ## 09 Design 设计：哲学、材料与工程
 
 ### 设计哲学与方法论
 
-![Sven Baacke，Gaggenau 全球设计负责人](ABOUT_GAGGENAU_media/P_SvenBaacke.jpg)
-
-<small style="color:#888">图：Gaggenau 全球设计负责人 Sven Baacke。图源：Gaggenau EB333 官方落地页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/P_SvenBaacke.jpg" alt="Sven Baacke，Gaggenau 全球设计负责人"></p>
+<p align="center"><small style="color:#888">图：Gaggenau 全球设计负责人 Sven Baacke。图源：Gaggenau EB333 官方落地页。</small></p>
 Gaggenau 设计哲学最准确的概括，来自设计负责人 Sven Baacke 反复使用的词组：传统前卫（traditional avant-garde）——在尊重传承与走向未来之间保持平衡。
 
 把这句话拆开看，它有明确的取舍。第一，功能先于形式，但形式不是功能的奴隶。官方历史写明"Form follows function 是核心信念"，但产品从不是功能主义的外观：90 公分门板、实心不锈钢旋钮、独立圆形调节环，都是先把工程问题解决到极限，再让形态从内部长出来。第二，专业厨房是一把尺子——Georg von Blanquet 留下的标准（对厨师有用、扛得住真厨房、还要好看）至今是底层逻辑，所以 Gaggenau 敢把 300℃ 烤制与 485℃ 自清洁写成家用烤箱的日常参数。第三，材料必须诚实：用厚度、单块料与少塑料说话。Baacke 谈 Vario 400 冷藏系列时说，打开门"几乎看不到塑料，里面全是真材实料，而且是最好的"。第四，克制本身是一种前卫：Expressive 用雕塑宣告存在，Minimalistic 用缺席寻求清晰，Alexander Stuhler 说得更直接："这个系列里，我们删掉了所有不必要的东西。"
 
-![Sören Strayle，交互与界面设计师](ABOUT_GAGGENAU_media/P_SoerenStrayle.jpg)
-
-<small style="color:#888">图：Gaggenau 交互与界面设计师 Sören Strayle。图源：Gaggenau EB333 官方落地页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/P_SoerenStrayle.jpg" alt="Sören Strayle，交互与界面设计师"></p>
+<p align="center"><small style="color:#888">图：Gaggenau 交互与界面设计师 Sören Strayle。图源：Gaggenau EB333 官方落地页。</small></p>
 这套方法论还有一层容易被忽略的结构：设计团队深度参与工程决策。Strayle 关于"保留实体环"的论述表明，交互设计师有权否决"全触屏化"的行业趋势；Baacke 参与 EB 333 全部开发过程，工厂里的人在采访中直接描述设计如何影响生产节拍。设计在这里不是给工程"化妆"的部门，而是产品定义的一部分。
 
 ### 材料与成形：一整块不锈钢
 
-![Lipsheim 工人检查门板表面](ABOUT_GAGGENAU_media/F_finish_inspection.jpg)
-
-<small style="color:#888">图：Lipsheim 工厂中检查 Expressive 烤箱门板表面的场景。图源：Gaggenau 官方 Behind the scenes 页面。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/F_finish_inspection.jpg" alt="Lipsheim 工人检查门板表面"></p>
+<p align="center"><small style="color:#888">图：Lipsheim 工厂中检查 Expressive 烤箱门板表面的场景。图源：Gaggenau 官方 Behind the scenes 页面。</small></p>
 Gaggenau 用钢的方式值得深挖，因为它的难点不在"用不锈钢"，而在"用一整块不锈钢"。EB 333 的门板是 3 毫米单板，90 公分宽的门面要求成形后的平整度与表面一致性极高——单板越大，拉丝方向、应力变形与装配误差越难控制。这正是它坚持少分件的原因：分件可以用接缝掩盖误差，单板只能靠模具、工艺与人工打磨解决。
 
-![门铰链细节](ABOUT_GAGGENAU_media/P_EB333_door_hinge.jpg)
-
-<small style="color:#888">图：EB 333 门铰链细节。图源：Gaggenau EB333 官方落地页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/P_EB333_door_hinge.jpg" alt="门铰链细节"></p>
+<p align="center"><small style="color:#888">图：EB 333 门铰链细节。图源：Gaggenau EB333 官方落地页。</small></p>
 官方 Behind the scenes 页面提供了一组难得的工程证据：工人用游标卡尺测量控制环的直径，检查门板表面，讨论门与箱体的配合。这些画面说明，Gaggenau 的"手工"不是情怀叙事，而是质量控制流程的一部分——人手被保留在公差检查、表面目检与装配判断这些机器难以替代的位置。
 
-![游标卡尺测量控制环](ABOUT_GAGGENAU_media/F_caliper_ring.jpg)
-
-<small style="color:#888">图：Lipsheim 工人用游标卡尺测量控制环。图源：Gaggenau 官方 Behind the scenes 页面。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/F_caliper_ring.jpg" alt="游标卡尺测量控制环"></p>
+<p align="center"><small style="color:#888">图：Lipsheim 工人用游标卡尺测量控制环。图源：Gaggenau 官方 Behind the scenes 页面。</small></p>
 ### Lipsheim：人手与机器
 
-![工人测试 Expressive 系列旋钮环](ABOUT_GAGGENAU_media/F_worker_testing_ring.jpg)
-
-<small style="color:#888">图：Lipsheim 工人测试 Expressive 系列烤箱控制环。图源：Gaggenau 官方 Behind the scenes 页面。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/F_worker_testing_ring.jpg" alt="工人测试 Expressive 系列旋钮环"></p>
+<p align="center"><small style="color:#888">图：Lipsheim 工人测试 Expressive 系列烤箱控制环。图源：Gaggenau 官方 Behind the scenes 页面。</small></p>
 Lipsheim 工厂约有 350 名技术工人，官方工艺文章的描述是"几乎每台机器旁都有人把不锈钢喂进去，或接手下一道手工工序"。负责 EB 333 生产的 Jörg Neuner 给出了更具体的数字："我们只有一道工序是全自动的，其余环节始终有人参与，或者纯粹是手工。"EB 333 日产量通常不超过个位数，官方明确把它归因于门板手工打磨与装配的节拍。
 
-![Jörg Neuner，EB 333 生产负责人](ABOUT_GAGGENAU_media/P_JorgNeuner.jpg)
-
-<small style="color:#888">图：Gaggenau 品牌中心负责人 Jörg Neuner。图源：Gaggenau EB333 官方落地页。</small>
-
-![工人讨论 Expressive 门板](ABOUT_GAGGENAU_media/F_doors_discussion1.jpg)
-
-<small style="color:#888">图：Lipsheim 工厂中讨论 Expressive 烤箱门板的场景。图源：Gaggenau 官方 Behind the scenes 页面。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/P_JorgNeuner.jpg" alt="Jörg Neuner，EB 333 生产负责人"></p>
+<p align="center"><small style="color:#888">图：Gaggenau 品牌中心负责人 Jörg Neuner。图源：Gaggenau EB333 官方落地页。</small></p>
+<p align="center"><img src="ABOUT_GAGGENAU_media/F_doors_discussion1.jpg" alt="工人讨论 Expressive 门板"></p>
+<p align="center"><small style="color:#888">图：Lipsheim 工厂中讨论 Expressive 烤箱门板的场景。图源：Gaggenau 官方 Behind the scenes 页面。</small></p>
 把手工与自动化放在一起看，才能理解 Gaggenau 的制造决策：它不拒绝自动化，而是把自动化用在性能攸关的工序（激光切割、双层拉丝、热加工），把判断性工作留给人工（表面检查、装配、调校）。这种分工的代价是产量低、成本高，收益是每台设备的表面与公差都有"人的注视"背书。对一个把"手工"写进品牌承诺的公司来说，这是逻辑自洽的生产组织方式。
 
 ### 人机与温度：门、环与隔热
 
 工程上最值得分析的三件事是门、环与温度。门：20 公斤的五层玻璃门要缓开缓闭，结构上靠铰链阻尼实现，手感接近汽车车门而不是橱柜门；五层玻璃之间是隔热层，确保 485℃ 自清洁时外表面安全。环：实心不锈钢铣出的调节环要"像珠宝"，公差与表面处理决定触感；旋钮与环的阻尼曲线决定操作反馈。温度：300℃ 底部加热、485℃ 热解自清洁配合加热催化器过滤油烟气味——这些参数背后是隔热、散热、催化材料与安全标准的一整套工程系统。
 
-![工厂里的设备与人](ABOUT_GAGGENAU_media/F_walk_equipment.jpg)
-
-<small style="color:#888">图：工人穿行于 Lipsheim 工厂设备之间。图源：Gaggenau 官方 Behind the scenes 页面。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/F_walk_equipment.jpg" alt="工厂里的设备与人"></p>
+<p align="center"><small style="color:#888">图：工人穿行于 Lipsheim 工厂设备之间。图源：Gaggenau 官方 Behind the scenes 页面。</small></p>
 ### 品牌侧依据与判断 → 设计变量
 
 | 品牌侧依据与判断 | 对应的设计变量 |
@@ -388,10 +328,8 @@ Lipsheim 工厂约有 350 名技术工人，官方工艺文章的描述是"几�
 
 ### 清洁与维护
 
-![蒸汽清洁系统（2015）](ABOUT_GAGGENAU_media/H2015_steam_clean.jpg)
-
-<small style="color:#888">图：官方历史页中的 2015 年蒸汽清洁系统。图源：Gaggenau 官方品牌历史页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/H2015_steam_clean.jpg" alt="蒸汽清洁系统（2015）"></p>
+<p align="center"><small style="color:#888">图：官方历史页中的 2015 年蒸汽清洁系统。图源：Gaggenau 官方品牌历史页。</small></p>
 清洁是超高端用户最不愿意做的家务，Gaggenau 把两个方案做成了产品功能：烤箱用 485℃ 热解自清洁配合催化器，蒸烤箱用清洁盒一键启动自动清洁程序。2015 年引入的蒸汽清洁系统让蒸烤箱的维护从"拆洗"变成"按键"。这些功能的意义不止于方便——它们决定了设备能否长期保持出厂状态，直接影响品牌最看重的长寿叙事。
 
 ### 长期持有与服务口碑
@@ -440,10 +378,8 @@ Gaggenau 一直在保护传承资产：90 公分烤箱体量、蓝色珐琅内�
 
 增长路径在北美与亚洲：BSH 在北美为 Gaggenau 铺设体验与设计中心（迈阿密、休斯顿已开，华盛顿特区、比佛利山在建），中国市场承担 BSH 高端卡位任务。产品侧，蒸汽、全表面感应与互联是未来几年的技术主线；Minimalistic 代表的"隐性奢华"审美，正是针对东亚与极简主义市场的结构性回应。判断置信度中——扩张方向来自集团公开财报与门店计划，市场反应有待时间验证。
 
-![Restaurant 1683 品牌体验空间](ABOUT_GAGGENAU_media/H2017_restaurant1683.jpg)
-
-<small style="color:#888">图：官方历史页中的 Restaurant 1683。图源：Gaggenau 官方品牌历史页。</small>
-
+<p align="center"><img src="ABOUT_GAGGENAU_media/H2017_restaurant1683.jpg" alt="Restaurant 1683 品牌体验空间"></p>
+<p align="center"><small style="color:#888">图：官方历史页中的 Restaurant 1683。图源：Gaggenau 官方品牌历史页。</small></p>
 ### 风险
 
 可验证的风险有四项：豪宅与翻新工程的周期波动直接冲击基本盘（BSH 2024 财报把地产低迷列为嵌入式业务压力来源）；Bora 在灶具下吸细分上持续进攻；集团内部 Thermador 在美国与它共享同一批高净值客户；洗衣与干衣产品线退出后，单一厨房场景意味着抗周期能力有限。此外，EB 333"日产量个位数"的手工叙事一旦被市场解读为供应瓶颈，可能限制增长——这是品牌资产与产能约束之间的张力，判断为值得跟踪的方向性风险。
