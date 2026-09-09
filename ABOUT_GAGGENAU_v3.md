@@ -27,7 +27,7 @@ Gaggenau 是德国超高端嵌入式厨电品牌，1995 年起隶属博西家电
 | 核心业务 | 烤箱与蒸烤箱、Vario 模块化灶具、排烟、冷藏与酒柜、咖啡机、洗碗机、保温与真空抽屉 |
 | 经典产品 | EB 333 烤箱、Vario 400 灶具系统、ED 220 蒸烤箱、CX 492 全表面感应灶、IK 300 对开门冰箱、Expressive / Minimalistic 系列 |
 
-![EB 333 正面，门板由一整片不锈钢构成](ABOUT_GAGGENAU_media/EB333610_official_shot01.webp)
+![EB 333 正面，门板由一整片不锈钢构成](ABOUT_GAGGENAU_media/EB333610_official_shot01.jpg)
 
 <small style="color:#888">图：EB 333 官方产品图，90 公分一体式不锈钢门面。图源：BSH 官方媒体素材（Gaggenau EB333110 产品页）。</small>
 
@@ -228,13 +228,13 @@ Vario 是 Gaggenau 自由度主张的载体。它不卖"一台灶"，而卖可�
 
 ### CX 492（2020）：全表面感应灶
 
-![CX 492 全表面感应灶](ABOUT_GAGGENAU_media/CX492_architonic_hero.webp)
+![CX 492 全表面感应灶](ABOUT_GAGGENAU_media/CX492_architonic_hero.jpg)
 
 <small style="color:#888">图：CX 492 全表面感应灶产品图。图源：Architonic 产品档案（收录 Gaggenau 官方图）。</small>
 
 CX 492 是这条路的极致：2020 年推出的 90 公分全表面感应灶，约 3200 平方厘米的台面全部是加热区，锅具放在哪里就在哪里加热，可同时容纳四只锅，不同形状的锅具无需对准区域。它的创新点不在"更大的灶"，而在重新定义了人与台面的关系——锅不再被区域约束。
 
-![400 系列灶具家族场景](ABOUT_GAGGENAU_media/Cooktop400_architonic_family.webp)
+![400 系列灶具家族场景](ABOUT_GAGGENAU_media/Cooktop400_architonic_family.jpg)
 
 <small style="color:#888">图：400 系列灶具家族场景（非特定型号）。图源：Architonic 产品档案。</small>
 
