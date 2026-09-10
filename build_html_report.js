@@ -18,6 +18,21 @@ const md = fs.readFileSync(input, 'utf8');
 const mime = { '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp' };
 let body = marked.parse(md, { gfm: true, breaks: false });
 
+const usedIds = {};
+function slugify(text) {
+  let s = text.toLowerCase()
+    .replace(/[`*_~\[\](){}<>#!+.,:;'"“”‘’《》「」『』、，。；：！？（）【】·|/@$%^&=\\]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+  if (usedIds[s] !== undefined) { usedIds[s] += 1; s = s + '-' + usedIds[s]; } else { usedIds[s] = 0; }
+  return s;
+}
+body = body.replace(/<h([1-3])>([\s\S]*?)<\/h\1>/g, (m, lvl, inner) => {
+  const text = inner.replace(/<[^>]+>/g, '');
+  return '<h' + lvl + ' id="' + slugify(text) + '">' + inner + '</h' + lvl + '>';
+});
+
 body = body.replace(/src="([^"]+)"/g, (m, src) => {
   if (/^(https?:|data:)/i.test(src)) return m;
   const file = path.resolve(base, src);
@@ -42,7 +57,8 @@ const css = "body{font-family:-apple-system,'PingFang SC','Microsoft YaHei','Seg
 "code{background:#f2f3f5;border-radius:4px;padding:2px 5px;font-family:Consolas,Menlo,monospace;font-size:0.9em}\n" +
 "pre{background:#f6f8fa;padding:14px;border-radius:6px;overflow:auto}\n" +
 "hr{border:none;border-top:1px solid #eaeaea;margin:2em 0}\n" +
-"ul,ol{padding-left:1.5em}";
+"ul,ol{padding-left:1.5em}\n" +
+"body>ol{background:#f8f9fa;border:1px solid #ececec;border-radius:8px;padding:16px 20px 16px 44px;line-height:2}";
 
 const html = '<!DOCTYPE html>\n<html lang="zh-CN">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>' +
 path.basename(input, '.md') + '</title>\n<style>' + css + '</style>\n</head>\n<body>\n' + body + '\n</body>\n</html>';
