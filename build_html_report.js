@@ -33,6 +33,24 @@ body = body.replace(/<h([1-3])>([\s\S]*?)<\/h\1>/g, (m, lvl, inner) => {
   return '<h' + lvl + ' id="' + slugify(text) + '">' + inner + '</h' + lvl + '>';
 });
 
+// 目录：从 H2 标题自动生成可折叠面板，并移除 Markdown 中手工维护的目录块
+const entries = [];
+const headingRe = /<h2 id="([^"]+)">([\s\S]*?)<\/h2>/g;
+let hm;
+while ((hm = headingRe.exec(body)) !== null) {
+  entries.push({ id: hm[1], text: hm[2].replace(/<[^>]+>/g, '') });
+}
+const firstH2 = body.indexOf('<h2');
+if (firstH2 > -1 && entries.length) {
+  let head = body.slice(0, firstH2);
+  const tail = body.slice(firstH2);
+  head = head.replace(/<table>[\s\S]*?<\/table>\s*$/, '');
+  head = head.replace(/<ol>[\s\S]*?<\/ol>\s*$/, '');
+  head = head.replace(/<p>\s*(\*\*)?目录(\*\*)?\s*<\/p>\s*$/, '');
+  const items = entries.map(e => '<a href="#' + e.id + '">' + e.text + '</a>').join('');
+  body = head + '<details class="toc"><summary>目录</summary><div class="toc-grid">' + items + '</div></details>\n' + tail;
+}
+
 body = body.replace(/src="([^"]+)"/g, (m, src) => {
   if (/^(https?:|data:)/i.test(src)) return m;
   const file = path.resolve(base, src);
@@ -58,7 +76,17 @@ const css = "body{font-family:-apple-system,'PingFang SC','Microsoft YaHei','Seg
 "pre{background:#f6f8fa;padding:14px;border-radius:6px;overflow:auto}\n" +
 "hr{border:none;border-top:1px solid #eaeaea;margin:2em 0}\n" +
 "ul,ol{padding-left:1.5em}\n" +
-"body>ol{background:#f8f9fa;border:1px solid #ececec;border-radius:8px;padding:16px 20px 16px 44px;line-height:2}";
+"details.toc{margin:1.4em 0 2.2em;font-size:0.85em}\n" +
+"details.toc summary{cursor:pointer;color:#777;width:fit-content;padding:6px 16px;border:1px solid #ececec;border-radius:999px;background:#fafafa;list-style:none;user-select:none}\n" +
+"details.toc summary::-webkit-details-marker{display:none}\n" +
+"details.toc summary::after{content:' ▾';color:#bbb}\n" +
+"details.toc[open] summary::after{content:' ▴'}\n" +
+"details.toc summary:hover{background:#f4f4f4}\n" +
+"details.toc .toc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 28px;padding:14px 18px;margin-top:10px;border:1px solid #f0f0f0;border-radius:10px;background:#fcfcfc}\n" +
+"details.toc a{color:#666;text-decoration:none;line-height:2}\n" +
+"details.toc a:hover{color:#222;text-decoration:underline}\n" +
+"@media (max-width:720px){details.toc .toc-grid{grid-template-columns:1fr}}\n" +
+"h1,h2,h3{scroll-margin-top:24px}";
 
 const html = '<!DOCTYPE html>\n<html lang="zh-CN">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>' +
 path.basename(input, '.md') + '</title>\n<style>' + css + '</style>\n</head>\n<body>\n' + body + '\n</body>\n</html>';
