@@ -16,6 +16,7 @@
 |---|---|
 | [品牌解读指南_v4.1.md](./品牌解读指南_v4.1.md) | 当前执行标准：章节结构、标题与注释格式、图片与证据规范、验收清单 |
 | [build_html_report.js](./build_html_report.js) | Markdown → 自包含 HTML 报告转换脚本（图片内嵌、标题锚点、图注灰色小号） |
+| [verify_report.js](./verify_report.js) | 交付前功能验证脚本：目录锚点、图片、格式、HTML 折叠目录与内嵌图片 |
 | [品牌撰写规范_v3.4.md](./品牌撰写规范_v3.4.md) | 历史版本规范 |
 | 品牌资产库撰写规范_v3.4.docx | 历史版本规范（Word） |
 
@@ -26,3 +27,11 @@ node build_html_report.js ABOUT_<品牌>_v<版本>.md
 ```
 
 脚本会把 Markdown 中引用的本地图片转为 base64 内嵌，生成单文件 HTML，可直接上传或转发；标题自动生成锚点，与报告目录联动。
+
+## 交付前验证
+
+```bash
+node verify_report.js ABOUT_<品牌>_v<版本>.md
+```
+
+每次修改格式或功能后必须先运行验证脚本并通过，再交付；Markdown 目录跳转须在目标阅读器实测（GitHub 网页端支持，本地部分 Markdown 预览器不生成标题锚点，此时以 HTML 版承担跳转）。
