@@ -8,7 +8,7 @@
 |---|---|---|
 | Gaggenau 嘉格纳（v3，约 1.1 万字 / 34 图） | [Markdown 版](./ABOUT_GAGGENAU_v3.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/ABOUT_GAGGENAU_v3.html) | [图片目录](./ABOUT_GAGGENAU_media/) · [图片台账](./ABOUT_GAGGENAU_media/image_ledger.md) |
 
-HTML 版报告顶部带可折叠目录，可点击跳转到各章节；Markdown 版顶部为纯文本两列索引（GitHub 会给链接强制加蓝色下划线，故 Markdown 版不设链接）。
+两部分都支持点击跳转：HTML 版报告顶部为可折叠的弱层级目录（纵向两列、中缝分隔条）；Markdown 版顶部为两列锚点链接目录，可直接跳转到各章节。
 
 ## 规范与工具
 
