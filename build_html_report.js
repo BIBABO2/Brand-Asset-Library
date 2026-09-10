@@ -47,8 +47,13 @@ if (firstH2 > -1 && entries.length) {
   head = head.replace(/<table>[\s\S]*?<\/table>\s*$/, '');
   head = head.replace(/<ol>[\s\S]*?<\/ol>\s*$/, '');
   head = head.replace(/<p>\s*(\*\*)?目录(\*\*)?\s*<\/p>\s*$/, '');
-  const items = entries.map(e => '<a href="#' + e.id + '">' + e.text + '</a>').join('');
-  body = head + '<details class="toc"><summary>目录</summary><div class="toc-grid">' + items + '</div></details>\n' + tail;
+  const half = Math.ceil(entries.length / 2);
+  const renderCol = arr => arr.map(e => '<a href="#' + e.id + '">' + e.text + '</a>').join('');
+  const tocHtml = '<details class="toc"><summary>目录</summary><div class="toc-grid">' +
+    '<div class="toc-col">' + renderCol(entries.slice(0, half)) + '</div>' +
+    '<div class="toc-col">' + renderCol(entries.slice(half)) + '</div>' +
+    '</div></details>\n';
+  body = head + tocHtml + tail;
 }
 
 body = body.replace(/src="([^"]+)"/g, (m, src) => {
@@ -82,10 +87,12 @@ const css = "body{font-family:-apple-system,'PingFang SC','Microsoft YaHei','Seg
 "details.toc summary::after{content:' ▾';color:#bbb}\n" +
 "details.toc[open] summary::after{content:' ▴'}\n" +
 "details.toc summary:hover{background:#f4f4f4}\n" +
-"details.toc .toc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 28px;padding:14px 18px;margin-top:10px;border:1px solid #f0f0f0;border-radius:10px;background:#fcfcfc}\n" +
+"details.toc .toc-grid{display:flex;align-items:stretch;padding:14px 18px;margin-top:10px;border:1px solid #f0f0f0;border-radius:10px;background:#fcfcfc}\n" +
+"details.toc .toc-col{flex:1;display:flex;flex-direction:column;min-width:0}\n" +
+"details.toc .toc-col+.toc-col{border-left:1px solid #ececec;padding-left:24px;margin-left:24px}\n" +
 "details.toc a{color:#666;text-decoration:none;line-height:2}\n" +
 "details.toc a:hover{color:#222;text-decoration:underline}\n" +
-"@media (max-width:720px){details.toc .toc-grid{grid-template-columns:1fr}}\n" +
+"@media (max-width:720px){details.toc .toc-grid{flex-direction:column}details.toc .toc-col+.toc-col{border-left:none;border-top:1px solid #ececec;padding-left:0;margin-left:0;padding-top:8px;margin-top:8px}}\n" +
 "h1,h2,h3{scroll-margin-top:24px}";
 
 const html = '<!DOCTYPE html>\n<html lang="zh-CN">\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>' +
