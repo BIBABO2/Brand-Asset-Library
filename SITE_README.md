@@ -26,6 +26,10 @@
 | 验收检查 | `node tools/verify_site.js`（静态校验 + 浏览器截图到 `site-verify/`） |
 | 只跑静态校验 | `node tools/verify_site.js --no-browser` |
 
+## 展示字体（Erotique）
+
+首页大标题、品牌名与列表/看板中的品牌名称使用展示字体 Erotique。把字体文件（`Erotique.woff2` / `.woff` / `.otf` / `.ttf`）放入 `assets/fonts/`，再运行 `node tools/build_site.js`，构建脚本会自动生成 `assets/fonts.css` 里的 `@font-face`；未放入字体文件时回退到 Bodoni MT / Didot / Georgia 等衬线体（字体已装在系统里时也会自动生效）。
+
 ## 内容规则
 
 1. 只收录 `ABOUT_<品牌>_v<版本>.md`；解读指南、撰写规范、示范档案、模板一律不进站点。

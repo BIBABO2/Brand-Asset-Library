@@ -49,6 +49,7 @@ function reportPage(opts) {
 <meta name="description" content="${esc(desc)}">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/fonts.css">
 </head>
 <body class="report-page">
 <header class="rpt-top">
@@ -81,7 +82,34 @@ ${article}
 `;
 }
 
+/* 探测 assets/fonts/Erotique.*，生成 @font-face；未放入字体时生成空文件，避免 404。 */
+function writeFontsCss() {
+  const dir = path.join(ROOT, 'assets', 'fonts');
+  const candidates = [
+    ['Erotique.woff2', 'woff2'],
+    ['Erotique.woff', 'woff'],
+    ['Erotique.otf', 'opentype'],
+    ['Erotique.ttf', 'truetype'],
+  ];
+  const sources = [];
+  if (fs.existsSync(dir)) {
+    for (const item of candidates) {
+      if (fs.existsSync(path.join(dir, item[0]))) {
+        sources.push("url('fonts/" + item[0] + "') format('" + item[1] + "')");
+      }
+    }
+  }
+  const css = sources.length
+    ? "/* 展示字体 Erotique（由构建脚本依据 assets/fonts/ 生成） */\n@font-face {\n  font-family: 'Erotique';\n  src: " +
+      sources.join(',\n       ') + ";\n  font-weight: 100 900;\n  font-style: normal;\n  font-display: swap;\n}\n"
+    : "/* 未检测到 assets/fonts/Erotique.*：把字体文件放入该目录后重新构建即可自动启用。 */\n";
+  fs.writeFileSync(path.join(ROOT, 'assets', 'fonts.css'), css, 'utf8');
+  return sources.length > 0;
+}
+
 function build() {
+  const hasDisplayFont = writeFontsCss();
+  console.log(hasDisplayFont ? '展示字体：已检测到 Erotique 字体文件' : '展示字体：未放入 Erotique 字体文件，暂用回退衬线体');
   const reports = core.scanReports(ROOT);
   const latest = core.latestPerBrand(reports);
   if (!latest.length) {

@@ -180,6 +180,7 @@
 
   var chipsRoot = document.getElementById('chips');
   var openKey = null;
+  var keepQuery = {};
 
   function renderChips() {
     chipsRoot.innerHTML = CHIPS.map(function (def) {
@@ -232,8 +233,8 @@
       var key = chip.getAttribute('data-chip');
       openKey = openKey === key ? null : key;
       renderChips();
-      var input = chipsRoot.querySelector('.dd-search');
-      if (input) input.focus();
+      var search = chipsRoot.querySelector('.dd-search');
+      if (search) search.focus();
       return;
     }
     var option = e.target.closest('[data-dd-option]');
@@ -245,11 +246,8 @@
       render();
       var again = chipsRoot.querySelector('.dd-search');
       if (again) { again.value = keepQuery[k] || ''; again.focus(); }
-      return;
     }
   });
-
-  var keepQuery = {};
 
   chipsRoot.addEventListener('input', function (e) {
     var input = e.target.closest('.dd-search');
@@ -295,21 +293,23 @@
 
   function listRowHtml(b) {
     return '<tr>' +
-      '<td class="cell-name"><a href="' + brandUrl(b) + '" style="text-decoration:none">' + esc(b.name) + '</a>' +
+      '<td class="cell-name"><a href="' + brandUrl(b) + '">' + esc(b.name) + '</a>' +
       (b.nameCn ? '<span class="cn">' + esc(b.nameCn) + '</span>' : '') + '</td>' +
       '<td><div class="card-tags">' + tagsHtml(b) + '</div></td>' +
       '<td class="cell-site">' + (b.website ? '<a href="' + esc(b.website) + '" target="_blank" rel="noopener">' + esc(domainOf(b.website)) + '</a>' : '—') + '</td>' +
       '<td class="cell-tagline">' + esc(b.tagline || '') + '</td>' +
       '<td class="cell-updated">' + esc(b.updatedAt || '—') + '</td>' +
-      (state.editing ? '<td><button type="button" class="btn small ghost" data-edit-brand="' + esc(b.slug) + '">编辑</button></td>' : '') +
+      (state.editing ? '<td class="cell-edit"><button type="button" class="btn small ghost" data-edit-brand="' + esc(b.slug) + '">编辑</button></td>' : '') +
       '</tr>';
   }
 
   function listHtml(brands) {
+    var cols = '<colgroup><col class="c-name"><col class="c-cat"><col class="c-site"><col class="c-tagline"><col class="c-update">' +
+      (state.editing ? '<col class="c-edit">' : '') + '</colgroup>';
     var head = '<tr><th>品牌名称</th><th>分类</th><th>官网</th><th>一句话简介</th><th>更新时间</th>' +
       (state.editing ? '<th>资料</th>' : '') + '</tr>';
-    return '<div class="view-list-wrap"><table class="view-list"><thead>' + head + '</thead><tbody>' +
-      brands.map(listRowHtml).join('') + '</tbody></table></div>';
+    return '<div class="view-list-wrap"><table class="view-list">' + cols +
+      '<thead>' + head + '</thead><tbody>' + brands.map(listRowHtml).join('') + '</tbody></table></div>';
   }
 
   function kanbanCardHtml(b) {
@@ -392,7 +392,6 @@
   var overlay = document.getElementById('search-overlay');
   var searchInput = document.getElementById('search-input');
   var searchResults = document.getElementById('search-results');
-  var searchHint = document.getElementById('search-hint');
   var indexLoading = null;
 
   function loadScript(src) {
@@ -445,8 +444,7 @@
         if (idx === -1 && String(sec.title).toLowerCase().indexOf(q) === -1) return;
         var score = 0;
         if (String(sec.title).toLowerCase().indexOf(q) > -1) score += 100;
-        var count = lower.split(q).length - 1;
-        score += Math.min(count, 12);
+        score += Math.min(lower.split(q).length - 1, 12);
         out.push({
           slug: slug, brand: pack.brand, anchor: sec.anchor, section: sec.section,
           title: sec.title, text: sec.text, score: score,
@@ -615,8 +613,8 @@
         '<div class="modal-actions"><button type="button" class="btn ghost" data-modal-close>取消</button>' +
         '<button type="button" class="btn dark" id="confirm-del">删除分类</button></div>');
       document.getElementById('confirm-del').addEventListener('click', function () {
-        var target = document.getElementById('reassign').value;
-        api('/api/category', { action: 'delete', id: delId, reassignTo: target })
+        var targetCat = document.getElementById('reassign').value;
+        api('/api/category', { action: 'delete', id: delId, reassignTo: targetCat })
           .then(function () { reload(); })
           .catch(function (err) { window.alert(err.message); });
       });
@@ -716,18 +714,6 @@
       render();
     }).catch(function () { /* 静态托管环境忽略 */ });
   }
-
-  /* ---------------------------------------------------------------- */
-  /* 启动                                                              */
-  /* ---------------------------------------------------------------- */
-
-  (function fillStatNote() {
-    var s = DATA.stats || {};
-    var note = document.getElementById('stat-note');
-    if (note && s.brands) {
-      note.textContent = s.brands + ' 个品牌 · ' + (s.words || 0).toLocaleString('en-US') + ' 字 · ' + (s.images || 0) + ' 张图';
-    }
-  })();
 
   renderChips();
   render();

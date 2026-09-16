@@ -1,4 +1,4 @@
-/* 品牌资产库 · 首页光效与进入动画 */
+/* 品牌资产库 · 首页：明亮金属/毛玻璃流体，鼠标方向跟随的水流感 */
 
 (function () {
   'use strict';
@@ -9,32 +9,25 @@
   var statsEl = document.getElementById('hero-stats');
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* 首页统计 */
+  /* 首页统计（仅品牌数与分类数） */
   (function fillStats() {
     if (!statsEl) return;
     var data = window.BAL_DATA;
     if (!data || !data.stats) { statsEl.textContent = ''; return; }
     var pad = function (n) { return String(n).padStart(2, '0'); };
-    var words = Number(data.stats.words || 0).toLocaleString('en-US');
     statsEl.innerHTML = '<b>' + pad(data.stats.brands) + '</b> BRANDS &nbsp;·&nbsp; <b>' +
-      pad(data.stats.categories) + '</b> CATEGORIES &nbsp;·&nbsp; <b>' + words + '</b> WORDS';
+      pad(data.stats.categories) + '</b> CATEGORIES';
   })();
 
-  /* ---------------------------------------------------------------- */
-  /* WebGL 光效                                                        */
-  /* ---------------------------------------------------------------- */
-
-  var VERT = [
-    'attribute vec2 a_pos;',
-    'void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }',
-  ].join('\n');
+  var VERT = 'attribute vec2 a_pos;\nvoid main() { gl_Position = vec4(a_pos, 0.0, 1.0); }';
 
   var FRAG = [
     'precision highp float;',
     'uniform vec2 u_res;',
     'uniform float u_time;',
     'uniform vec2 u_mouse;',
-    'uniform float u_speed;',
+    'uniform vec2 u_flow;',
+    'uniform float u_flowMag;',
     'uniform float u_click;',
     'uniform vec2 u_clickPos;',
     '',
@@ -70,52 +63,63 @@
     '  float m = min(u_res.x, u_res.y);',
     '  vec2 p = (gl_FragCoord.xy - 0.5 * u_res) / m;',
     '  vec2 mp = (u_mouse - 0.5 * u_res) / m;',
-    '  float t = u_time * 0.05;',
+    '  vec2 fl = u_flow / m;',
+    '  float fm = clamp(u_flowMag, 0.0, 1.0);',
+    '  float t = u_time * 0.035;',
     '',
-    '  float n1 = fbm(p * 1.5 + vec2(t * 0.9, -t * 0.7));',
-    '  float n2 = fbm(p * 3.2 + vec2(-t * 0.5, t * 0.6) + n1 * 0.9);',
+    '  // 水流：沿鼠标移动方向推挤采样域，水流方向随鼠标而变',
+    '  vec2 q = p - fl * (0.85 + 1.7 * fm);',
     '',
-    '  vec3 col = mix(vec3(0.022, 0.025, 0.031), vec3(0.060, 0.068, 0.084), n2);',
+    '  float n1 = fbm(q * 1.15 + vec2(t * 0.85, -t * 0.60));',
+    '  float n2 = fbm(q * 2.45 + vec2(-t * 0.50, t * 0.65) + n1 * 0.85);',
+    '  float n3 = fbm(q * 5.20 + n2 * 1.15 + vec2(t * 0.30, -t * 0.20));',
     '',
-    '  float axis = p.x * 0.55 + p.y * 0.42;',
-    '  float beam = smoothstep(0.42, 0.0, abs(axis - (n1 - 0.5) * 0.7));',
-    '  col += vec3(0.10, 0.13, 0.19) * beam * (0.55 + 0.45 * sin(u_time * 0.18));',
+    '  vec3 base = mix(vec3(0.995, 0.996, 1.000), vec3(0.905, 0.925, 0.960), smoothstep(0.20, 0.85, n1));',
+    '  base = mix(base, vec3(0.845, 0.875, 0.925), smoothstep(0.42, 0.95, n2) * 0.80);',
     '',
-    '  float axis2 = p.x * -0.35 + p.y * 0.60;',
-    '  float beam2 = smoothstep(0.30, 0.0, abs(axis2 - 0.12 + (n2 - 0.5) * 0.5));',
-    '  col += vec3(0.07, 0.09, 0.13) * beam2 * 0.85;',
+    '  // 金属丝光',
+    '  vec2 dir = normalize(vec2(0.86, 0.50));',
+    '  float streak = sin(dot(q, dir) * 46.0 + n2 * 7.5 + u_time * 0.22);',
+    '  base += vec3(0.050, 0.056, 0.068) * smoothstep(0.62, 1.0, streak) * (0.35 + 0.40 * n3);',
     '',
+    '  // 毛玻璃团块：边缘略暗形成厚度',
+    '  float glass = smoothstep(0.40, 0.92, n3);',
+    '  base = mix(base, vec3(1.0), glass * 0.42);',
+    '  float rim = 1.0 - smoothstep(0.0, 0.09, abs(n3 - 0.52));',
+    '  base -= vec3(0.045, 0.050, 0.060) * rim * 0.5;',
+    '',
+    '  // 鼠标：轻柔光晕 + 沿移动方向的拉伸与拖尾',
     '  float d = length(p - mp);',
-    '  float speed = clamp(u_speed, 0.0, 1.5);',
-    '  col += vec3(0.42, 0.50, 0.66) * exp(-d * 3.4) * (0.16 + 0.50 * speed);',
-    '  float rings = sin(d * 26.0 - u_time * 2.2) * exp(-d * 3.6);',
-    '  col += vec3(0.30, 0.36, 0.48) * rings * (0.10 + 0.45 * speed);',
+    '  float near = exp(-d * 3.2);',
+    '  vec2 radial = normalize(p - mp + vec2(1e-4));',
+    '  float follow = (fm > 0.001) ? dot(radial, normalize(fl + vec2(1e-5))) : 0.0;',
+    '  base += vec3(0.050, 0.055, 0.065) * near * (0.25 + 0.75 * fm) * 0.6;',
+    '  base += vec3(0.060, 0.065, 0.075) * exp(-max(d - 0.18, 0.0) * 5.0) * abs(follow) * fm * 0.85;',
+    '  base -= vec3(0.030, 0.034, 0.040) * exp(-d * 5.0) * clamp(follow, 0.0, 1.0) * fm * 0.7;',
     '',
+    '  // 点击：白光脉冲',
     '  if (u_click > 0.0) {',
     '    float cd = length(p - (u_clickPos - 0.5 * u_res) / m);',
     '    float radius = u_click * 1.25;',
-    '    col += vec3(0.85, 0.90, 1.00) * exp(-abs(cd - radius) * 12.0) * (1.0 - u_click) * 0.60;',
-    '    col += vec3(0.50) * smoothstep(radius, radius - 0.35, cd) * (1.0 - u_click) * 0.16;',
+    '    base += vec3(0.60) * exp(-abs(cd - radius) * 11.0) * (1.0 - u_click) * 0.55;',
+    '    base += vec3(0.25) * smoothstep(radius, radius - 0.4, cd) * (1.0 - u_click);',
     '  }',
     '',
-    '  float vig = 1.0 - 0.75 * pow(clamp(length(p) * 0.82, 0.0, 1.0), 2.0);',
-    '  col *= vig;',
-    '  col += (hash(gl_FragCoord.xy + fract(u_time) * 37.0) - 0.5) * 0.022;',
+    '  base *= 1.0 - 0.16 * pow(clamp(length(p) * 0.78, 0.0, 1.0), 2.0);',
+    '  base += (hash(gl_FragCoord.xy + fract(u_time) * 37.0) - 0.5) * 0.010;',
     '',
-    '  gl_FragColor = vec4(col, 1.0);',
+    '  gl_FragColor = vec4(clamp(base, 0.0, 1.0), 1.0);',
     '}',
   ].join('\n');
 
   var glState = null;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
 
   function compile(gl, type, src) {
     var sh = gl.createShader(type);
     gl.shaderSource(sh, src);
     gl.compileShader(sh);
-    if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) {
-      gl.deleteShader(sh);
-      return null;
-    }
+    if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) { gl.deleteShader(sh); return null; }
     return sh;
   }
 
@@ -143,15 +147,16 @@
       uRes: gl.getUniformLocation(prog, 'u_res'),
       uTime: gl.getUniformLocation(prog, 'u_time'),
       uMouse: gl.getUniformLocation(prog, 'u_mouse'),
-      uSpeed: gl.getUniformLocation(prog, 'u_speed'),
+      uFlow: gl.getUniformLocation(prog, 'u_flow'),
+      uFlowMag: gl.getUniformLocation(prog, 'u_flowMag'),
       uClick: gl.getUniformLocation(prog, 'u_click'),
-      uClickPos: gl.getUniformLocation(prog, 'u_click_pos') || gl.getUniformLocation(prog, 'u_clickPos'),
+      uClickPos: gl.getUniformLocation(prog, 'u_clickPos'),
     };
   }
 
-  var mouse = { x: 0.5, y: 0.5, tx: 0.5, ty: 0.5, speed: 0 };
+  var mouse = { x: 0.5, y: 0.5, tx: 0.5, ty: 0.5 };
+  var flow = { x: 0, y: 0, dx: 0, dy: 0, mag: 0 };
   var click = { active: false, start: 0, x: 0.5, y: 0.5 };
-  var dpr = Math.min(window.devicePixelRatio || 1, 2);
   var startTime = performance.now();
 
   function resize() {
@@ -164,23 +169,28 @@
 
   function frame() {
     requestAnimationFrame(frame);
+
+    mouse.x += (mouse.tx - mouse.x) * 0.10;
+    mouse.y += (mouse.ty - mouse.y) * 0.10;
+
+    /* 水流速度矢量：来自鼠标移动方向，指数衰减后保留片刻 */
+    flow.x = flow.x * 0.87 + flow.dx * 0.55;
+    flow.y = flow.y * 0.87 + flow.dy * 0.55;
+    flow.dx = 0;
+    flow.dy = 0;
+    var magnitude = Math.sqrt(flow.x * flow.x + flow.y * flow.y);
+    flow.mag = Math.min(1, magnitude / 34);
+
     if (!glState) return;
     var gl = glState.gl;
     var now = performance.now();
-
-    mouse.x += (mouse.tx - mouse.x) * 0.09;
-    mouse.y += (mouse.ty - mouse.y) * 0.09;
-    mouse.speed *= 0.94;
-
-    var clickProgress = 0;
-    if (click.active) {
-      clickProgress = Math.min((now - click.start) / 620, 1);
-    }
+    var clickProgress = click.active ? Math.min((now - click.start) / 620, 1) : 0;
 
     gl.uniform2f(glState.uRes, canvas.width, canvas.height);
     gl.uniform1f(glState.uTime, (now - startTime) / 1000);
     gl.uniform2f(glState.uMouse, mouse.x * canvas.width, (1 - mouse.y) * canvas.height);
-    gl.uniform1f(glState.uSpeed, mouse.speed);
+    gl.uniform2f(glState.uFlow, flow.x, -flow.y);
+    gl.uniform1f(glState.uFlowMag, flow.mag);
     gl.uniform1f(glState.uClick, clickProgress);
     gl.uniform2f(glState.uClickPos, click.x * canvas.width, (1 - click.y) * canvas.height);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
@@ -189,16 +199,9 @@
   resize();
   window.addEventListener('resize', resize);
 
-  if (!reduceMotion) {
-    glState = initGL();
-  }
-  if (!glState) {
-    document.body.classList.add('no-gl');
-    if (canvas) canvas.style.display = 'none';
-  } else {
-    requestAnimationFrame(frame);
-  }
-
+  if (!reduceMotion) glState = initGL();
+  if (!glState) document.body.classList.add('no-gl');
+  requestAnimationFrame(frame);
   document.body.classList.add('ready');
 
   /* ---------------------------------------------------------------- */
@@ -213,13 +216,14 @@
 
   window.addEventListener('mousemove', function (e) {
     var n = toNorm(e.clientX, e.clientY);
-    mouse.speed = Math.min(1.5, mouse.speed + Math.abs(n.x - mouse.tx) + Math.abs(n.y - mouse.ty)) * 6;
+    flow.dx += (n.x - mouse.tx) * window.innerWidth * dpr;
+    flow.dy += (n.y - mouse.ty) * window.innerHeight * dpr;
     mouse.tx = n.x;
     mouse.ty = n.y;
     if (ring) {
       ring.style.left = e.clientX + 'px';
       ring.style.top = e.clientY + 'px';
-      ring.style.transform = 'scale(' + (1 + Math.min(mouse.speed, 1) * 0.6) + ')';
+      ring.style.transform = 'scale(' + (1 + Math.min(flow.mag, 1) * 0.7) + ')';
     }
   }, { passive: true });
 
