@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>看板 · 品牌资产库</title>
+<meta name="description" content="品牌资产库看板：画廊、列表与分类看板三种视图，支持分类、首字母、更新时间筛选与全文检索。">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="board-page">
+
+<header class="topbar">
+  <a class="brandmark" href="index.html">Brand Asset Library<small>品牌资产库</small></a>
+  <nav class="views" id="views">
+    <button type="button" data-view="gallery">画廊</button>
+    <button type="button" data-view="list">列表</button>
+    <button type="button" data-view="board">分类看板</button>
+  </nav>
+  <div class="topbar-right">
+    <span class="count-note" id="stat-note"></span>
+    <button type="button" class="btn" id="search-open">搜索</button>
+    <button type="button" class="btn ghost" id="edit-toggle" hidden>编辑分类</button>
+  </div>
+</header>
+
+<section class="filterbar">
+  <div class="chips" id="chips"></div>
+  <div class="filter-right">
+    <span id="result-count"></span>
+    <button type="button" class="btn small ghost" id="sort-toggle">更新时间 ↓</button>
+    <button type="button" class="btn small ghost" id="clear-filters" hidden>清除筛选</button>
+  </div>
+</section>
+
+<main id="view-root"></main>
+
+<div class="overlay hidden" id="search-overlay">
+  <div class="search-panel" role="dialog" aria-label="全站搜索">
+    <div class="search-panel-head">
+      <input id="search-input" type="search" placeholder="搜索品牌或报告内容…" autocomplete="off" spellcheck="false">
+      <div class="search-hint" id="search-hint">Esc 关闭 · 回车打开第一条结果 · 支持品牌名、分类与报告正文关键词</div>
+    </div>
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+
+<aside class="panel hidden" id="cat-panel" aria-label="分类管理">
+  <div class="panel-head">
+    <h2>品牌分类管理</h2>
+    <button type="button" class="btn small" id="cat-close">关闭</button>
+  </div>
+  <div class="panel-body">
+    <div id="cat-list"></div>
+    <div class="new-cat">
+      <input id="cat-new-name" type="text" placeholder="新分类名称，例如「户外/园艺」">
+      <button type="button" class="btn" id="cat-add">添加</button>
+    </div>
+    <div class="panel-note">
+      改名会自动同步到所有引用该分类的品牌；删除前会提示改派或置为未分类。
+      所有改动即时写入 <code>data/brands.json</code>，发布时随站点一起更新。
+    </div>
+  </div>
+</aside>
+
+<div class="modal hidden" id="modal">
+  <div class="modal-card" id="modal-card"></div>
+</div>
+
+<script src="data/library.js"></script>
+<script src="assets/board.js"></script>
+</body>
+</html>
