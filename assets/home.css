@@ -1,21 +1,26 @@
-/* 品牌资产库 · 首页（明亮浅色 · 金属与毛玻璃流动质感） */
+/* 品牌资产库 · 首页：液态金属浅色背景 + 居中展示标题；点击空白处缓慢浮现看板 */
 
 html, body { height: 100%; }
 
 body.home {
   margin: 0;
-  background:
-    radial-gradient(85% 60% at 18% 8%, #ffffff 0%, rgba(255, 255, 255, 0) 62%),
-    radial-gradient(70% 60% at 82% 88%, #e7eef9 0%, rgba(231, 238, 249, 0) 66%),
-    linear-gradient(158deg, #fcfdff 0%, #eff3f9 48%, #e5ebf4 100%);
-  color: #17181c;
   overflow: hidden;
-  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+  color: #1c1e20;
+  background: linear-gradient(165deg, #fbfcfd 0%, #eef1f6 55%, #e6ebf2 100%);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  transition: background .8s ease;
+}
+
+body.home.board-open {
+  overflow: auto;
+  background: #eef1f6;
 }
 
 #gl {
   position: fixed;
   inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   display: block;
@@ -23,140 +28,105 @@ body.home {
 
 body.home.no-gl #gl { display: none; }
 
+/* ---------------------------------------------------------------- */
+/* 首屏                                                              */
+/* ---------------------------------------------------------------- */
+
 .hero {
   position: fixed;
   inset: 0;
-  z-index: 3;
-  pointer-events: none;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  cursor: default;
+  transition: opacity 1.5s ease, transform 1.5s cubic-bezier(.22, 1, .36, 1);
 }
 
-.hero-inner { position: absolute; inset: 0; }
+.hero-inner { text-align: center; max-width: 1200px; }
+
+.hero-eyebrow {
+  margin: 0 0 clamp(18px, 3vh, 30px);
+  font-size: 11.5px;
+  letter-spacing: .3em;
+  text-indent: .3em;
+  color: rgba(28, 30, 32, .46);
+}
 
 .hero-title {
-  position: absolute;
-  left: clamp(24px, 5vw, 92px);
-  top: 50%;
-  transform: translateY(-50%);
+  margin: 0;
   font-family: var(--display);
   font-weight: 400;
+  font-size: clamp(46px, 9.2vw, 152px);
   line-height: .94;
-  letter-spacing: .012em;
+  letter-spacing: .008em;
   text-transform: uppercase;
-  color: #17181c;
+  color: #1a1c1e;
 }
 
 .hero-title span { display: block; }
-.hero-title .l1 { font-size: clamp(48px, 11vw, 176px); }
-.hero-title .l2 { font-size: clamp(48px, 11vw, 176px); margin-left: clamp(30px, 9.5vw, 200px); color: #2a2c33; }
-.hero-title .l3 {
-  font-size: clamp(32px, 7vw, 112px);
-  margin-left: clamp(14px, 3.6vw, 78px);
-  letter-spacing: .06em;
-  font-style: italic;
-  color: #4a4d57;
-}
 
 .hero-meta {
-  position: absolute;
-  right: clamp(24px, 5vw, 92px);
-  bottom: clamp(34px, 7vh, 88px);
-  max-width: min(360px, 56vw);
-  text-align: right;
-}
-
-.hero-sub {
-  font-size: clamp(13px, 1.1vw, 15px);
-  letter-spacing: .04em;
-  color: rgba(23, 24, 28, .74);
-}
-
-.hero-stats {
-  margin-top: 18px;
-  font-family: var(--display);
-  font-size: clamp(11px, .95vw, 13px);
-  letter-spacing: .12em;
-  color: rgba(23, 24, 28, .42);
-}
-
-.hero-stats b { font-weight: 400; color: rgba(23, 24, 28, .7); }
-
-.hero-links {
-  position: absolute;
-  right: clamp(24px, 5vw, 92px);
-  top: clamp(28px, 5vh, 58px);
   display: flex;
-  gap: 18px;
-  pointer-events: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(30px, 6vw, 96px);
+  margin: clamp(34px, 7vh, 84px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-meta li { display: flex; flex-direction: column; gap: 8px; min-width: 92px; }
+
+.hero-meta .meta-label {
   font-size: 11px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
+  letter-spacing: .18em;
+  color: rgba(28, 30, 32, .42);
 }
 
-.hero-links a {
+.hero-meta .meta-value {
+  font-family: var(--display);
+  font-size: 17px;
+  letter-spacing: .04em;
+  color: #24272a;
+}
+
+body.home.board-open .hero {
+  opacity: 0;
+  transform: translateY(-22px);
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------- */
+/* 看板层：缓慢浮现                                                    */
+/* ---------------------------------------------------------------- */
+
+.board-layer {
   position: relative;
-  color: rgba(23, 24, 28, .55);
-  text-decoration: none;
-  padding-bottom: 3px;
-}
-
-.hero-links a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform .3s ease;
-}
-
-.hero-links a:hover { color: #17181c; }
-.hero-links a:hover::after { transform: scaleX(1); }
-
-/* 进入看板的过渡：柔和白光扩散 */
-.veil {
-  position: fixed;
-  inset: 0;
-  z-index: 20;
-  pointer-events: none;
+  z-index: 10;
+  min-height: 100vh;
   opacity: 0;
-  background: radial-gradient(circle at var(--vx, 50%) var(--vy, 50%),
-    rgba(255, 255, 255, .98) 0%,
-    rgba(246, 249, 253, .86) 34%,
-    rgba(238, 243, 250, .35) 62%,
-    rgba(238, 243, 250, 0) 78%);
-  transition: opacity .3s ease;
-}
-
-.veil.on { opacity: 1; }
-
-.cursor-ring {
-  position: fixed;
-  z-index: 4;
-  width: 36px;
-  height: 36px;
-  margin: -18px 0 0 -18px;
-  border: 1px solid rgba(23, 24, 28, .22);
-  border-radius: 50%;
+  transform: translateY(34px);
   pointer-events: none;
-  transition: transform .12s ease-out, opacity .3s ease;
-  opacity: 0;
+  background: rgba(247, 248, 250, .88);
+  backdrop-filter: blur(26px) saturate(120%);
+  -webkit-backdrop-filter: blur(26px) saturate(120%);
+  transition: opacity 1.6s ease, transform 1.6s cubic-bezier(.22, 1, .36, 1);
 }
 
-body.home.ready .cursor-ring { opacity: 1; }
-
-@media (hover: none) {
-  .cursor-ring { display: none; }
+body.home.board-open .board-layer {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
 }
 
 @media (max-width: 640px) {
-  .hero-title { top: 46%; }
-  .hero-title .l1,
-  .hero-title .l2 { font-size: clamp(44px, 14.5vw, 78px); }
-  .hero-title .l2 { margin-left: clamp(18px, 7vw, 54px); }
-  .hero-title .l3 { font-size: clamp(24px, 8.4vw, 44px); margin-left: clamp(8px, 3vw, 18px); }
-  .hero-meta { max-width: 76vw; }
-  .hero-links { position: absolute; }
+  .hero-title { font-size: clamp(40px, 15vw, 76px); }
+  .hero-meta { gap: 26px 42px; }
+  .hero-meta li { min-width: 74px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero, .board-layer { transition-duration: .3s; }
 }

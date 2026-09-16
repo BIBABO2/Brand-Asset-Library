@@ -7,8 +7,8 @@
 
 | 路径 | 说明 |
 |---|---|
-| `index.html` | 首页：WebGL 光效 + 衬线体标题，点击任意位置进入看板 |
-| `board.html` | 看板：画廊 / 列表 / 分类看板，四维筛选与全局搜索 |
+| `index.html` | 首页与看板同页：液态金属浅色背景 + 居中展示标题，点击任意空白处缓慢浮现看板 |
+| `board.html` | 兼容旧链接：自动跳转到 `index.html#board`（保留查询参数） |
 | `reports/<slug>.html` | 每个品牌一篇阅读页（由构建脚本生成，勿手工编辑） |
 | `assets/` | 样式与脚本（`site.css` / `board.js` / `home.css` / `home.js` / `report.js`） |
 | `data/brands.json` | 唯一数据源：品牌资料与分类定义（可编辑） |

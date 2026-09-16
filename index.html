@@ -3,39 +3,97 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BRAND ASSET LIBRARY · 品牌资产库</title>
-<meta name="description" content="品牌资产库：品牌解读报告汇总，可按画廊、列表与分类看板查看，支持全文检索。">
+<title>Brand Asset Library · 品牌资产库</title>
+<meta name="description" content="品牌资产库：按画廊、列表与分类看板浏览品牌档案，支持全文检索。">
+<meta name="theme-color" content="#eef1f5">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/home.css">
 </head>
 <body class="home">
-<canvas id="gl"></canvas>
-<div class="veil" id="veil"></div>
-<div class="cursor-ring" id="cursor-ring"></div>
+<canvas id="gl" aria-hidden="true"></canvas>
 
-<main class="hero" id="hero">
+<!-- 首页：液态金属背景 + 居中展示标题，点击任意空白处慢慢浮现看板 -->
+<section class="hero" id="hero">
   <div class="hero-inner">
-    <div class="hero-links">
-      <a href="board.html" data-enter>看板</a>
-      <a href="https://github.com/BIBABO2/Brand-Asset-Library" target="_blank" rel="noopener">GitHub</a>
-    </div>
+    <p class="hero-eyebrow">品牌资产库</p>
+    <h1 class="hero-title"><span>Brand Asset</span><span>Library</span></h1>
+    <ul class="hero-meta" id="hero-meta"></ul>
+  </div>
+</section>
 
-    <h1 class="hero-title">
-      <span class="l1">Brand</span>
-      <span class="l2">Asset</span>
-      <span class="l3">Library</span>
-    </h1>
+<!-- 看板层：初始隐藏，点击后缓慢浮现 -->
+<main class="board-layer" id="board-layer" aria-hidden="true">
+  <header class="site-bar">
+    <a class="brandmark" href="index.html">
+      <span class="brandmark-en">Brand Asset Library</span>
+      <span class="brandmark-cn">品牌资产库</span>
+    </a>
+    <nav class="site-nav">
+      <button type="button" class="nav-link" id="search-open">搜索</button>
+      <button type="button" class="nav-link" id="edit-toggle" hidden>编辑分类</button>
+      <a class="nav-link" href="index.html" id="back-hero">首页</a>
+    </nav>
+  </header>
 
-    <div class="hero-meta">
-      <div class="hero-sub">品牌资产库 · 品牌解读报告汇总</div>
-      <div class="hero-stats" id="hero-stats"></div>
+  <nav class="view-bar">
+    <div class="views" id="views">
+      <button type="button" data-view="gallery">画廊</button>
+      <button type="button" data-view="list">列表</button>
+      <button type="button" data-view="board">分类看板</button>
     </div>
+  </nav>
+
+  <section class="filterbar">
+    <div class="chips" id="chips"></div>
+  </section>
+
+  <section class="result-bar">
+    <span class="micro" id="result-count"></span>
+    <div class="result-actions">
+      <button type="button" class="text-link" id="sort-toggle">更新时间 ↓</button>
+      <button type="button" class="text-link" id="clear-filters" hidden>清除筛选</button>
+    </div>
+  </section>
+
+  <main id="view-root"></main>
+
+  <div class="overlay hidden" id="search-overlay">
+    <div class="search-panel" role="dialog" aria-label="全站搜索">
+      <div class="search-panel-head">
+        <input id="search-input" type="search" placeholder="搜索品牌或报告内容…" autocomplete="off" spellcheck="false">
+        <div class="search-hint" id="search-hint">Esc 关闭 · 回车打开第一条结果 · 支持品牌名、分类与报告正文关键词</div>
+      </div>
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+
+  <aside class="panel hidden" id="cat-panel" aria-label="分类管理">
+    <div class="panel-head">
+      <h2>品牌分类管理</h2>
+      <button type="button" class="btn small" id="cat-close">关闭</button>
+    </div>
+    <div class="panel-body">
+      <div id="cat-list"></div>
+      <div class="new-cat">
+        <input id="cat-new-name" type="text" placeholder="新分类名称，例如「户外/园艺」">
+        <button type="button" class="btn" id="cat-add">添加</button>
+      </div>
+      <div class="panel-note">
+        改名会自动同步到所有引用该分类的品牌；删除前会提示改派或置为未分类。
+        所有改动即时写入 <code>data/brands.json</code>，发布时随站点一起更新。
+      </div>
+    </div>
+  </aside>
+
+  <div class="modal hidden" id="modal">
+    <div class="modal-card" id="modal-card"></div>
   </div>
 </main>
 
 <script src="data/library.js"></script>
 <script src="assets/home.js"></script>
+<script src="assets/board.js"></script>
 </body>
 </html>

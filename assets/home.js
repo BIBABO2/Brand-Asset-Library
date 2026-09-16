@@ -1,23 +1,35 @@
-/* 品牌资产库 · 首页：明亮金属/毛玻璃流体，鼠标方向跟随的水流感 */
+/* 品牌资产库 · 首页：流动液态金属背景（无指针交互）＋点击空白处缓慢浮现看板 */
 
 (function () {
   'use strict';
 
   var canvas = document.getElementById('gl');
-  var veil = document.getElementById('veil');
-  var ring = document.getElementById('cursor-ring');
-  var statsEl = document.getElementById('hero-stats');
+  var boardLayer = document.getElementById('board-layer');
+  var metaEl = document.getElementById('hero-meta');
+  var data = window.BAL_DATA || { brands: [], categories: [], stats: {} };
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revealed = false;
 
-  /* 首页统计（仅品牌数与分类数） */
-  (function fillStats() {
-    if (!statsEl) return;
-    var data = window.BAL_DATA;
-    if (!data || !data.stats) { statsEl.textContent = ''; return; }
+  /* 首屏元信息（品牌数 / 分类数 / 最近更新） */
+  (function fillMeta() {
+    if (!metaEl) return;
     var pad = function (n) { return String(n).padStart(2, '0'); };
-    statsEl.innerHTML = '<b>' + pad(data.stats.brands) + '</b> BRANDS &nbsp;·&nbsp; <b>' +
-      pad(data.stats.categories) + '</b> CATEGORIES';
+    var latest = (data.brands || []).reduce(function (acc, b) {
+      return b.updatedAt && b.updatedAt > acc ? b.updatedAt : acc;
+    }, '');
+    var rows = [
+      ['品牌', pad((data.stats || {}).brands || 0)],
+      ['分类', pad((data.stats || {}).categories || 0)],
+      ['最近更新', latest || '—'],
+    ];
+    metaEl.innerHTML = rows.map(function (r) {
+      return '<li><span class="meta-label">' + r[0] + '</span><span class="meta-value">' + r[1] + '</span></li>';
+    }).join('');
   })();
+
+  /* ---------------------------------------------------------------- */
+  /* 液态金属背景                                                      */
+  /* ---------------------------------------------------------------- */
 
   var VERT = 'attribute vec2 a_pos;\nvoid main() { gl_Position = vec4(a_pos, 0.0, 1.0); }';
 
@@ -25,15 +37,10 @@
     'precision highp float;',
     'uniform vec2 u_res;',
     'uniform float u_time;',
-    'uniform vec2 u_mouse;',
-    'uniform vec2 u_flow;',
-    'uniform float u_flowMag;',
-    'uniform float u_click;',
-    'uniform vec2 u_clickPos;',
     '',
     'float hash(vec2 p) {',
-    '  p = fract(p * vec2(123.34, 456.21));',
-    '  p += dot(p, p + 45.32);',
+    '  p = fract(p * vec2(127.31, 311.7));',
+    '  p += dot(p, p + 34.23);',
     '  return fract(p.x * p.y);',
     '}',
     '',
@@ -51,9 +58,10 @@
     'float fbm(vec2 p) {',
     '  float v = 0.0;',
     '  float a = 0.5;',
+    '  mat2 rot = mat2(0.80, 0.60, -0.60, 0.80);',
     '  for (int i = 0; i < 5; i++) {',
     '    v += a * noise(p);',
-    '    p *= 2.03;',
+    '    p = rot * p * 2.02;',
     '    a *= 0.5;',
     '  }',
     '  return v;',
@@ -62,58 +70,39 @@
     'void main() {',
     '  float m = min(u_res.x, u_res.y);',
     '  vec2 p = (gl_FragCoord.xy - 0.5 * u_res) / m;',
-    '  vec2 mp = (u_mouse - 0.5 * u_res) / m;',
-    '  vec2 fl = u_flow / m;',
-    '  float fm = clamp(u_flowMag, 0.0, 1.0);',
-    '  float t = u_time * 0.035;',
+    '  float t = u_time * 0.028;',
     '',
-    '  // 水流：沿鼠标移动方向推挤采样域，水流方向随鼠标而变',
-    '  vec2 q = p - fl * (0.85 + 1.7 * fm);',
+    '  // 缓慢流动的高度场（液态金属的“起伏”）',
+    '  vec2 q = p * 1.08 + vec2(t * 0.42, -t * 0.30);',
+    '  float h = fbm(q + fbm(q * 0.6 + t) * 0.35);',
+    '  float hx = fbm(q + vec2(0.014, 0.0) + fbm((q + vec2(0.014, 0.0)) * 0.6 + t) * 0.35);',
+    '  float hy = fbm(q + vec2(0.0, 0.014) + fbm((q + vec2(0.0, 0.014)) * 0.6 + t) * 0.35);',
     '',
-    '  float n1 = fbm(q * 1.15 + vec2(t * 0.85, -t * 0.60));',
-    '  float n2 = fbm(q * 2.45 + vec2(-t * 0.50, t * 0.65) + n1 * 0.85);',
-    '  float n3 = fbm(q * 5.20 + n2 * 1.15 + vec2(t * 0.30, -t * 0.20));',
+    '  // 由高度场求伪法线，得到金属反射',
+    '  vec3 n = normalize(vec3((h - hx) * 9.0, (h - hy) * 9.0, 0.42));',
+    '  vec3 L = normalize(vec3(-0.55, 0.72, 0.62));',
+    '  float diff = clamp(dot(n, L), 0.0, 1.0);',
+    '  float spec = pow(max(dot(reflect(-L, n), vec3(0.0, 0.0, 1.0)), 0.0), 26.0);',
+    '  float fres = pow(1.0 - clamp(n.z, 0.0, 1.0), 2.0);',
     '',
-    '  vec3 base = mix(vec3(0.995, 0.996, 1.000), vec3(0.905, 0.925, 0.960), smoothstep(0.20, 0.85, n1));',
-    '  base = mix(base, vec3(0.845, 0.875, 0.925), smoothstep(0.42, 0.95, n2) * 0.80);',
+    '  // 浅色渐变底色：冷白 → 雾蓝',
+    '  vec3 base = mix(vec3(0.972, 0.974, 0.978), vec3(0.858, 0.892, 0.938), smoothstep(0.22, 0.86, h));',
+    '  vec3 col = base * (0.90 + 0.22 * diff);',
+    '  col += vec3(1.0, 0.995, 0.982) * spec * 0.42;',
+    '  col += vec3(0.80, 0.85, 0.93) * fres * 0.30;',
     '',
-    '  // 金属丝光',
-    '  vec2 dir = normalize(vec2(0.86, 0.50));',
-    '  float streak = sin(dot(q, dir) * 46.0 + n2 * 7.5 + u_time * 0.22);',
-    '  base += vec3(0.050, 0.056, 0.068) * smoothstep(0.62, 1.0, streak) * (0.35 + 0.40 * n3);',
+    '  // 大尺度明暗与细腻颗粒，避免塑料感',
+    '  col *= 1.0 - 0.055 * smoothstep(0.45, 1.0, fbm(q * 0.55 - 2.4));',
+    '  col += (hash(gl_FragCoord.xy + fract(u_time) * 11.0) - 0.5) * 0.007;',
+    '  col *= 1.0 - 0.08 * pow(clamp(length(p) * 0.82, 0.0, 1.0), 2.0);',
     '',
-    '  // 毛玻璃团块：边缘略暗形成厚度',
-    '  float glass = smoothstep(0.40, 0.92, n3);',
-    '  base = mix(base, vec3(1.0), glass * 0.42);',
-    '  float rim = 1.0 - smoothstep(0.0, 0.09, abs(n3 - 0.52));',
-    '  base -= vec3(0.045, 0.050, 0.060) * rim * 0.5;',
-    '',
-    '  // 鼠标：轻柔光晕 + 沿移动方向的拉伸与拖尾',
-    '  float d = length(p - mp);',
-    '  float near = exp(-d * 3.2);',
-    '  vec2 radial = normalize(p - mp + vec2(1e-4));',
-    '  float follow = (fm > 0.001) ? dot(radial, normalize(fl + vec2(1e-5))) : 0.0;',
-    '  base += vec3(0.050, 0.055, 0.065) * near * (0.25 + 0.75 * fm) * 0.6;',
-    '  base += vec3(0.060, 0.065, 0.075) * exp(-max(d - 0.18, 0.0) * 5.0) * abs(follow) * fm * 0.85;',
-    '  base -= vec3(0.030, 0.034, 0.040) * exp(-d * 5.0) * clamp(follow, 0.0, 1.0) * fm * 0.7;',
-    '',
-    '  // 点击：白光脉冲',
-    '  if (u_click > 0.0) {',
-    '    float cd = length(p - (u_clickPos - 0.5 * u_res) / m);',
-    '    float radius = u_click * 1.25;',
-    '    base += vec3(0.60) * exp(-abs(cd - radius) * 11.0) * (1.0 - u_click) * 0.55;',
-    '    base += vec3(0.25) * smoothstep(radius, radius - 0.4, cd) * (1.0 - u_click);',
-    '  }',
-    '',
-    '  base *= 1.0 - 0.16 * pow(clamp(length(p) * 0.78, 0.0, 1.0), 2.0);',
-    '  base += (hash(gl_FragCoord.xy + fract(u_time) * 37.0) - 0.5) * 0.010;',
-    '',
-    '  gl_FragColor = vec4(clamp(base, 0.0, 1.0), 1.0);',
+    '  gl_FragColor = vec4(clamp(col, 0.0, 1.0), 1.0);',
     '}',
   ].join('\n');
 
   var glState = null;
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var startTime = performance.now();
 
   function compile(gl, type, src) {
     var sh = gl.createShader(type);
@@ -146,18 +135,8 @@
       gl: gl,
       uRes: gl.getUniformLocation(prog, 'u_res'),
       uTime: gl.getUniformLocation(prog, 'u_time'),
-      uMouse: gl.getUniformLocation(prog, 'u_mouse'),
-      uFlow: gl.getUniformLocation(prog, 'u_flow'),
-      uFlowMag: gl.getUniformLocation(prog, 'u_flowMag'),
-      uClick: gl.getUniformLocation(prog, 'u_click'),
-      uClickPos: gl.getUniformLocation(prog, 'u_clickPos'),
     };
   }
-
-  var mouse = { x: 0.5, y: 0.5, tx: 0.5, ty: 0.5 };
-  var flow = { x: 0, y: 0, dx: 0, dy: 0, mag: 0 };
-  var click = { active: false, start: 0, x: 0.5, y: 0.5 };
-  var startTime = performance.now();
 
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -169,106 +148,77 @@
 
   function frame() {
     requestAnimationFrame(frame);
-
-    mouse.x += (mouse.tx - mouse.x) * 0.10;
-    mouse.y += (mouse.ty - mouse.y) * 0.10;
-
-    /* 水流速度矢量：来自鼠标移动方向，指数衰减后保留片刻 */
-    flow.x = flow.x * 0.87 + flow.dx * 0.55;
-    flow.y = flow.y * 0.87 + flow.dy * 0.55;
-    flow.dx = 0;
-    flow.dy = 0;
-    var magnitude = Math.sqrt(flow.x * flow.x + flow.y * flow.y);
-    flow.mag = Math.min(1, magnitude / 34);
-
     if (!glState) return;
     var gl = glState.gl;
-    var now = performance.now();
-    var clickProgress = click.active ? Math.min((now - click.start) / 620, 1) : 0;
-
     gl.uniform2f(glState.uRes, canvas.width, canvas.height);
-    gl.uniform1f(glState.uTime, (now - startTime) / 1000);
-    gl.uniform2f(glState.uMouse, mouse.x * canvas.width, (1 - mouse.y) * canvas.height);
-    gl.uniform2f(glState.uFlow, flow.x, -flow.y);
-    gl.uniform1f(glState.uFlowMag, flow.mag);
-    gl.uniform1f(glState.uClick, clickProgress);
-    gl.uniform2f(glState.uClickPos, click.x * canvas.width, (1 - click.y) * canvas.height);
+    gl.uniform1f(glState.uTime, (performance.now() - startTime) / 1000);
     gl.drawArrays(gl.TRIANGLES, 0, 3);
   }
 
   resize();
   window.addEventListener('resize', resize);
-
   if (!reduceMotion) glState = initGL();
   if (!glState) document.body.classList.add('no-gl');
   requestAnimationFrame(frame);
-  document.body.classList.add('ready');
 
   /* ---------------------------------------------------------------- */
-  /* 指针与进入动画                                                     */
+  /* 点击空白处：缓慢浮现看板                                            */
   /* ---------------------------------------------------------------- */
 
-  var entering = false;
-
-  function toNorm(clientX, clientY) {
-    return { x: clientX / window.innerWidth, y: clientY / window.innerHeight };
+  function reveal(immediate) {
+    if (revealed) return;
+    revealed = true;
+    if (immediate) {
+      document.documentElement.classList.add('deep-link');
+      document.body.style.transition = 'none';
+      if (boardLayer) boardLayer.style.transition = 'none';
+      var heroEl = document.getElementById('hero');
+      if (heroEl) heroEl.style.transition = 'none';
+    }
+    document.body.classList.add('board-open');
+    if (boardLayer) boardLayer.setAttribute('aria-hidden', 'false');
+    try {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search + '#board');
+    } catch (e) { /* 忽略 */ }
+    window.scrollTo(0, 0);
   }
 
-  window.addEventListener('mousemove', function (e) {
-    var n = toNorm(e.clientX, e.clientY);
-    flow.dx += (n.x - mouse.tx) * window.innerWidth * dpr;
-    flow.dy += (n.y - mouse.ty) * window.innerHeight * dpr;
-    mouse.tx = n.x;
-    mouse.ty = n.y;
-    if (ring) {
-      ring.style.left = e.clientX + 'px';
-      ring.style.top = e.clientY + 'px';
-      ring.style.transform = 'scale(' + (1 + Math.min(flow.mag, 1) * 0.7) + ')';
-    }
-  }, { passive: true });
-
-  function enter(clientX, clientY) {
-    if (entering) return;
-    entering = true;
-    var x = typeof clientX === 'number' ? clientX : window.innerWidth / 2;
-    var y = typeof clientY === 'number' ? clientY : window.innerHeight / 2;
-    var n = toNorm(x, y);
-    click.active = true;
-    click.start = performance.now();
-    click.x = n.x;
-    click.y = n.y;
-    if (veil) {
-      veil.style.setProperty('--vx', x + 'px');
-      veil.style.setProperty('--vy', y + 'px');
-      veil.classList.add('on');
-    }
-    window.setTimeout(function () { window.location.href = 'board.html'; }, 560);
+  function backToHero() {
+    revealed = false;
+    document.body.classList.remove('board-open');
+    if (boardLayer) boardLayer.setAttribute('aria-hidden', 'true');
+    try { window.history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) { /* 忽略 */ }
+    window.scrollTo(0, 0);
+    document.body.offsetHeight; /* 强制回流，保证过渡重新生效 */
   }
+
+  var deepLink = window.location.hash === '#board' ||
+    /(?:^|[?&])view=/.test(window.location.search);
+  if (deepLink) reveal(true);
 
   document.addEventListener('click', function (e) {
-    var link = e.target && e.target.closest ? e.target.closest('a') : null;
-    if (link) {
-      if (link.hasAttribute('data-enter')) {
-        e.preventDefault();
-        enter(e.clientX, e.clientY);
-      }
+    var el = e.target;
+    if (el && el.closest && el.closest('#back-hero')) {
+      e.preventDefault();
+      backToHero();
       return;
     }
-    enter(e.clientX, e.clientY);
+    if (revealed) return;
+    if (el && el.closest && el.closest('a, button, input, textarea, select')) return;
+    reveal(false);
   });
 
   window.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      enter();
-    }
+    if (revealed) return;
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); reveal(false); }
   });
 
   window.addEventListener('wheel', function (e) {
-    if (Math.abs(e.deltaY) > 2) enter();
+    if (revealed) return;
+    if (Math.abs(e.deltaY) > 4) reveal(false);
   }, { passive: true });
 
-  window.addEventListener('touchstart', function (e) {
-    if (e.touches && e.touches[0]) enter(e.touches[0].clientX, e.touches[0].clientY);
+  window.addEventListener('touchstart', function () {
+    if (!revealed) reveal(false);
   }, { passive: true });
 })();

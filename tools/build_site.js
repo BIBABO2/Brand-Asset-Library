@@ -54,7 +54,7 @@ function reportPage(opts) {
 <body class="report-page">
 <header class="rpt-top">
   <div class="rpt-top-inner">
-    <a class="rpt-back" href="../board.html">← 返回看板</a>
+    <a class="rpt-back" href="../index.html#board">← 返回看板</a>
     <div class="rpt-headline">
       <h1 class="rpt-name">${esc(brand.name)}${brand.nameCn ? ' <span class="rpt-name-cn">' + esc(brand.nameCn) + '</span>' : ''}</h1>
       <div class="rpt-tags">${tags}</div>
@@ -85,31 +85,40 @@ ${article}
 /* 探测 assets/fonts/Erotique.*，生成 @font-face；未放入字体时生成空文件，避免 404。 */
 function writeFontsCss() {
   const dir = path.join(ROOT, 'assets', 'fonts');
-  const candidates = [
-    ['Erotique.woff2', 'woff2'],
-    ['Erotique.woff', 'woff'],
-    ['Erotique.otf', 'opentype'],
-    ['Erotique.ttf', 'truetype'],
-  ];
+  const LATIN = 'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD';
+  const LATIN_EXT = 'U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF';
+  const formatOf = ext => ext === 'woff2' ? 'woff2' : (ext === 'woff' ? 'woff' : (ext === 'otf' ? 'opentype' : 'truetype'));
   const sources = [];
   if (fs.existsSync(dir)) {
-    for (const item of candidates) {
-      if (fs.existsSync(path.join(dir, item[0]))) {
-        sources.push("url('fonts/" + item[0] + "') format('" + item[1] + "')");
+    for (const file of fs.readdirSync(dir).sort()) {
+      const display = /^BrandDisplay-(\d{3})(i?)(-ext)?\.(woff2|woff|otf|ttf)$/i.exec(file);
+      if (display) {
+        sources.push('BrandDisplay|' + "url('fonts/" + file + "') format('" + formatOf(display[4].toLowerCase()) + "')" +
+          '|' + display[1] + '|' + (display[2] ? 'italic' : 'normal') + '|' + (display[3] ? LATIN_EXT : LATIN));
+        continue;
+      }
+      const erotique = /^Erotique\.(woff2|woff|otf|ttf)$/i.exec(file);
+      if (erotique) {
+        sources.push('Erotique|' + "url('fonts/" + file + "') format('" + formatOf(erotique[1].toLowerCase()) + "')" + '|100 900|normal|');
       }
     }
   }
+  const localErotique = '@font-face {\n  font-family: \'Erotique\';\n  src: local(\'Erotique\'), local(\'Erotique Display\'), local(\'Erotique Regular\');\n  font-weight: 100 900;\n  font-style: normal;\n  font-display: swap;\n}';
   const css = sources.length
-    ? "/* 展示字体 Erotique（由构建脚本依据 assets/fonts/ 生成） */\n@font-face {\n  font-family: 'Erotique';\n  src: " +
-      sources.join(',\n       ') + ";\n  font-weight: 100 900;\n  font-style: normal;\n  font-display: swap;\n}\n"
-    : "/* 未检测到 assets/fonts/Erotique.*：把字体文件放入该目录后重新构建即可自动启用。 */\n";
+    ? '/* 由构建脚本生成：展示字体 @font-face */\n' + localErotique + '\n' + sources.map(function (entry) {
+      const parts = entry.split('|');
+      return '@font-face {\n  font-family: \'' + parts[0] + '\';\n  src: ' + parts[1] + ';\n  font-weight: ' + parts[2] +
+        ';\n  font-style: ' + parts[3] + ';\n  font-display: swap;\n' +
+        (parts[4] ? '  unicode-range: ' + parts[4] + ';\n' : '') + '}';
+    }).join('\n') + '\n'
+    : '/* 展示字体：优先使用本机安装的 Erotique，其余情况回退到系统衬线体。 */\n' + localErotique + '\n';
   fs.writeFileSync(path.join(ROOT, 'assets', 'fonts.css'), css, 'utf8');
   return sources.length > 0;
 }
 
 function build() {
   const hasDisplayFont = writeFontsCss();
-  console.log(hasDisplayFont ? '展示字体：已检测到 Erotique 字体文件' : '展示字体：未放入 Erotique 字体文件，暂用回退衬线体');
+  console.log(hasDisplayFont ? '展示字体：@font-face 已生成（BrandDisplay / Erotique）' : '展示字体：未检测到字体文件，使用系统回退');
   const reports = core.scanReports(ROOT);
   const latest = core.latestPerBrand(reports);
   if (!latest.length) {

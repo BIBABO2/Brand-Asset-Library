@@ -4,79 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>看板 · 品牌资产库</title>
-<meta name="description" content="品牌资产库看板：画廊、列表与分类看板三种视图，支持分类、首字母、更新时间筛选与全文检索。">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="index.html">
 <link rel="icon" href="data:,">
-<link rel="stylesheet" href="assets/site.css">
-<link rel="stylesheet" href="assets/fonts.css">
+<script>
+  /* 兼容旧链接：看板已并入首页，这里保留查询参数并直接跳转 */
+  location.replace('index.html' + location.search + '#board');
+</script>
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; color: #6b6f76;
+    background: linear-gradient(160deg, #fbfcfd, #eceff4); }
+  a { color: #1c1e20; }
+</style>
 </head>
-<body class="board-page">
-
-<header class="site-bar">
-  <a class="brandmark" href="index.html">
-    <span class="brandmark-en">Brand Asset Library</span>
-    <span class="brandmark-cn">品牌资产库</span>
-  </a>
-  <div class="site-actions">
-    <button type="button" class="btn" id="search-open">搜索</button>
-    <button type="button" class="btn ghost" id="edit-toggle" hidden>编辑分类</button>
-  </div>
-</header>
-
-<nav class="view-bar">
-  <div class="views" id="views">
-    <button type="button" data-view="gallery">画廊</button>
-    <button type="button" data-view="list">列表</button>
-    <button type="button" data-view="board">分类看板</button>
-  </div>
-</nav>
-
-<section class="filterbar">
-  <div class="chips" id="chips"></div>
-</section>
-
-<section class="result-bar">
-  <span id="result-count"></span>
-  <div class="result-actions">
-    <button type="button" class="btn small ghost" id="sort-toggle">更新时间 ↓</button>
-    <button type="button" class="btn small ghost" id="clear-filters" hidden>清除筛选</button>
-  </div>
-</section>
-
-<main id="view-root"></main>
-
-<div class="overlay hidden" id="search-overlay">
-  <div class="search-panel" role="dialog" aria-label="全站搜索">
-    <div class="search-panel-head">
-      <input id="search-input" type="search" placeholder="搜索品牌或报告内容…" autocomplete="off" spellcheck="false">
-      <div class="search-hint" id="search-hint">Esc 关闭 · 回车打开第一条结果 · 支持品牌名、分类与报告正文关键词</div>
-    </div>
-    <div class="search-results" id="search-results"></div>
-  </div>
-</div>
-
-<aside class="panel hidden" id="cat-panel" aria-label="分类管理">
-  <div class="panel-head">
-    <h2>品牌分类管理</h2>
-    <button type="button" class="btn small" id="cat-close">关闭</button>
-  </div>
-  <div class="panel-body">
-    <div id="cat-list"></div>
-    <div class="new-cat">
-      <input id="cat-new-name" type="text" placeholder="新分类名称，例如「户外/园艺」">
-      <button type="button" class="btn" id="cat-add">添加</button>
-    </div>
-    <div class="panel-note">
-      改名会自动同步到所有引用该分类的品牌；删除前会提示改派或置为未分类。
-      所有改动即时写入 <code>data/brands.json</code>，发布时随站点一起更新。
-    </div>
-  </div>
-</aside>
-
-<div class="modal hidden" id="modal">
-  <div class="modal-card" id="modal-card"></div>
-</div>
-
-<script src="data/library.js"></script>
-<script src="assets/board.js"></script>
+<body>
+<p>正在打开看板…如果没有自动跳转，请<a href="index.html#board">点这里</a>。</p>
 </body>
 </html>
