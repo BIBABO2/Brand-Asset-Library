@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-16",
+  "updatedAt": "2026-09-17",
   "categories": [
     {
       "id": "tools-industry",
@@ -135,6 +135,28 @@
       "letter": "O",
       "wordCount": 19567,
       "imageCount": 38
+    },
+    {
+      "slug": "rimadesio",
+      "name": "Rimadesio",
+      "nameCn": "",
+      "website": "https://www.rimadesio.it",
+      "tagline": "意大利高端室内分隔系统与定制家具制造商",
+      "categories": [
+        "home-furniture-lifestyle"
+      ],
+      "aliases": [
+        "Rimadesio",
+        "里马德西奥"
+      ],
+      "report": "ABOUT_RIMADESIO_v1.md",
+      "reportHtml": "ABOUT_RIMADESIO_v1.html",
+      "logo": "ABOUT_RIMADESIO_media/Logo_Rimadesio.png",
+      "cover": "ABOUT_RIMADESIO_media/P_Modulor_01.jpg",
+      "updatedAt": "2026-09-17",
+      "letter": "R",
+      "wordCount": 18604,
+      "imageCount": 40
     }
   ]
 }

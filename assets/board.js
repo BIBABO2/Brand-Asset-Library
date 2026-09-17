@@ -273,14 +273,18 @@
 
   var viewRoot = document.getElementById('view-root');
 
+  /* 封面：品牌可选 cover（高清场景图，满幅裁切），否则用 logo（contain 居中） */
+  function coverHtml(b) {
+    var src = b.cover || b.logo;
+    if (src) return '<img src="' + esc(src) + '" alt="' + esc(brandTitle(b)) + '" loading="lazy" decoding="async">';
+    return '<span class="cover-text">' + esc(b.name) + '</span>';
+  }
+
   function cardHtml(b) {
-    var cover = b.logo
-      ? '<img src="' + esc(b.logo) + '" alt="' + esc(b.name) + ' 标识" loading="lazy" decoding="async">'
-      : '<span class="cover-text">' + esc(b.name) + '</span>';
     return '<article class="card">' +
       '<a class="card-stretched-link" href="' + brandUrl(b) + '" aria-label="' + esc(brandTitle(b)) + ' 品牌解读报告"></a>' +
       (state.editing ? '<button type="button" class="card-edit" data-edit-brand="' + esc(b.slug) + '">编辑资料</button>' : '') +
-      '<div class="card-cover">' + cover + '</div>' +
+      '<div class="card-cover' + (b.cover ? ' photo' : '') + '">' + coverHtml(b) + '</div>' +
       '<div class="card-body">' +
       '<div class="card-title">' + esc(b.name) +
       (b.nameCn ? '<span class="card-title-cn">' + esc(b.nameCn) + '</span>' : '') + '</div>' +
@@ -313,11 +317,12 @@
   }
 
   function kanbanCardHtml(b) {
-    var logo = b.logo
-      ? '<img src="' + esc(b.logo) + '" alt="" loading="lazy" decoding="async">'
+    var src = b.cover || b.logo;
+    var logo = src
+      ? '<img src="' + esc(src) + '" alt="" loading="lazy" decoding="async">'
       : '<span class="cover-text">' + esc((b.name || '?').slice(0, 2)) + '</span>';
     return '<a class="kanban-card" href="' + brandUrl(b) + '" style="text-decoration:none;color:inherit">' +
-      '<span class="kanban-logo">' + logo + '</span>' +
+      '<span class="kanban-logo' + (b.cover ? ' photo' : '') + '">' + logo + '</span>' +
       '<span class="kanban-info"><span class="kanban-card-name">' + esc(b.name) + '</span>' +
       '<span class="kanban-card-line">' + esc(b.tagline || '') + '</span></span></a>';
   }

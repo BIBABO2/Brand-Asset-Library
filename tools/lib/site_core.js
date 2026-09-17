@@ -438,6 +438,7 @@ function writeBrands(data) {
       ...(b.report ? { report: b.report } : {}),
       ...(b.reportHtml ? { reportHtml: b.reportHtml } : {}),
       ...(b.logo ? { logo: b.logo } : {}),
+      ...(b.cover ? { cover: b.cover } : {}),
       ...(b.updatedAt ? { updatedAt: b.updatedAt } : {}),
       ...(b.letter ? { letter: b.letter } : {}),
       ...(b.wordCount ? { wordCount: b.wordCount } : {}),
