@@ -1,8 +1,8 @@
 # ABOUT RIMADESIO
 
-![Rimadesio 官方标识](ABOUT_RIMADESIO_media/Logo_Rimadesio.png)
+![Rimadesio 官方标识](ABOUT_RIMADESIO_media/Logo_Rimadesio_black.png)
 
-*图：Rimadesio 官方标识，取自官网结构化数据中的品牌标志文件。图源：Rimadesio 官网。*
+*图：Rimadesio 官方标识，官网结构化数据仅提供 102×18 的压缩版，此处改用按指南 v4.2 第 12.2 节检索取得的超高清字标（已裁去四周留白）。图源：Rimadesio 官方字标素材。*
 
 目录
 

@@ -130,10 +130,10 @@
       ],
       "report": "ABOUT_OIKOS_v1.md",
       "reportHtml": "ABOUT_OIKOS_v1.html",
-      "logo": "ABOUT_OIKOS_media/Logo_Oikos_dark.png",
-      "updatedAt": "2026-09-16",
+      "logo": "ABOUT_OIKOS_media/Logo_Oikos_color.png",
+      "updatedAt": "2026-09-17",
       "letter": "O",
-      "wordCount": 19567,
+      "wordCount": 19576,
       "imageCount": 38
     },
     {
@@ -154,7 +154,7 @@
       "logo": "ABOUT_RIMADESIO_media/Logo_Rimadesio_black.png",
       "updatedAt": "2026-09-17",
       "letter": "R",
-      "wordCount": 18604,
+      "wordCount": 18632,
       "imageCount": 40
     }
   ]

@@ -7,7 +7,8 @@
 
 | 文件名称 | 内容与型号依据 | 媒体主机 | 来源页面 | 尺寸 |
 |---|---|---|---|---|
-| Logo_Oikos_dark.png | 官方深色标识（og:image 与 JSON-LD logo 均指向该文件） | oikos.it | https://oikos.it/it/ | 170×33 |
+| Logo_Oikos_color.png | 官方标识高清版（红灰配色，含图形标记与 ARCHITETTURE D'INGRESSO 副标；已裁去四周留白） | 网络检索（官方字标素材） | 按指南 v4.2 第 12.2 节检索取得 | 1920×385 |
+| Logo_Oikos_dark.png | 官网压缩版深色标识（og:image 与 JSON-LD logo 均指向该文件），仅存档备用 | oikos.it | https://oikos.it/it/ | 170×33 |
 | H_azienda_gruaro.jpg | 公司页主图（文件名 azienda2） | oikos.it | https://oikos.it/it/azienda/ | 1920×1000 |
 | F_produzione_interna.jpg | 内部生产主题图（alt：L'artigianalità incontra l'organizzazione industriale） | oikos.it | https://oikos.it/it/azienda/ | 1920×1000 |
 | F_officina.jpg | 兵工厂精神页金属加工图（文件名 officina） | oikos.it | https://oikos.it/it/cultura/arsenalita/ | 500×400 |
