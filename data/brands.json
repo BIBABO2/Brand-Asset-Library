@@ -138,6 +138,26 @@
       "imageCount": 34
     },
     {
+      "slug": "gessi",
+      "name": "Gessi",
+      "nameCn": "",
+      "website": "https://www.gessi.com",
+      "tagline": "意大利高端卫浴与私人健康品牌",
+      "categories": [
+        "bathroom"
+      ],
+      "aliases": [
+        "Gessi",
+        "GESSI"
+      ],
+      "report": "ABOUT_GESSI_v1.md",
+      "logo": "ABOUT_GESSI_media/Logo_Gessi.png",
+      "updatedAt": "2026-09-17",
+      "letter": "G",
+      "wordCount": 15625,
+      "imageCount": 32
+    },
+    {
       "slug": "oikos",
       "name": "Oikos",
       "nameCn": "Oikos Venezia",
