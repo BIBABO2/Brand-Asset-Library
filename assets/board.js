@@ -274,9 +274,13 @@
   var viewRoot = document.getElementById('view-root');
 
   /* 封面：品牌可选 cover（高清场景图，满幅裁切），否则用 logo（contain 居中） */
+  function scaleStyle(b) {
+    return b.logoScale ? ' style="--logo-scale:' + esc(String(b.logoScale)) + '"' : '';
+  }
+
   function coverHtml(b) {
     var src = b.cover || b.logo;
-    if (src) return '<img src="' + esc(src) + '" alt="' + esc(brandTitle(b)) + '" loading="lazy" decoding="async">';
+    if (src) return '<img src="' + esc(src) + '" alt="' + esc(brandTitle(b)) + '"' + scaleStyle(b) + ' loading="lazy" decoding="async">';
     return '<span class="cover-text">' + esc(b.name) + '</span>';
   }
 
@@ -319,7 +323,7 @@
   function kanbanCardHtml(b) {
     var src = b.cover || b.logo;
     var logo = src
-      ? '<img src="' + esc(src) + '" alt="" loading="lazy" decoding="async">'
+      ? '<img src="' + esc(src) + '" alt=""' + scaleStyle(b) + ' loading="lazy" decoding="async">'
       : '<span class="cover-text">' + esc((b.name || '?').slice(0, 2)) + '</span>';
     return '<a class="kanban-card" href="' + brandUrl(b) + '" style="text-decoration:none;color:inherit">' +
       '<span class="kanban-logo' + (b.cover ? ' photo' : '') + '">' + logo + '</span>' +

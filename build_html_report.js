@@ -71,6 +71,7 @@ const css = "body{font-family:-apple-system,'PingFang SC','Microsoft YaHei','Seg
 "h3{margin-top:2em}\n" +
 "p,li{font-size:16px}\n" +
 "img{max-width:100%;height:auto;border-radius:6px;display:block;margin:0 auto}\n" +
+"img[src*='Logo_']{max-width:61.8%}\n" +
 "em{color:#888;font-size:0.9em;font-style:normal}\n" +
 "p em{display:block;margin-top:6px}\n" +
 "table{border-collapse:collapse;width:100%;margin:1.4em 0;font-size:0.94em}\n" +
