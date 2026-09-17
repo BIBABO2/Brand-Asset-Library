@@ -1,1 +1,1 @@
-window.BAL_SEARCH_MANIFEST = ["gaggenau","oikos","rimadesio"];
+window.BAL_SEARCH_MANIFEST = ["ceadesign","gaggenau","oikos","rimadesio"];

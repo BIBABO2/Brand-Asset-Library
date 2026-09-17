@@ -95,6 +95,28 @@
   ],
   "brands": [
     {
+      "slug": "ceadesign",
+      "name": "CEADESIGN",
+      "nameCn": "",
+      "website": "https://www.ceadesign.it",
+      "tagline": "意大利高端设计龙头与卫浴设备制造商",
+      "categories": [
+        "bathroom"
+      ],
+      "aliases": [
+        "CEADESIGN",
+        "CEA Design",
+        "CEA"
+      ],
+      "report": "ABOUT_CEADESIGN_v1.md",
+      "reportHtml": "ABOUT_CEADESIGN_v1.html",
+      "logo": "ABOUT_CEADESIGN_media/Logo_CEADESIGN_black.svg",
+      "updatedAt": "2026-09-17",
+      "letter": "C",
+      "wordCount": 17175,
+      "imageCount": 37
+    },
+    {
       "slug": "gaggenau",
       "name": "Gaggenau",
       "nameCn": "嘉格纳",
