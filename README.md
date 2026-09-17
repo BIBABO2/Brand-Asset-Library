@@ -8,6 +8,7 @@
 |---|---|---|
 | Gaggenau 嘉格纳（v3，约 1.1 万字 / 34 图） | [Markdown 版](./ABOUT_GAGGENAU_v3.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/ABOUT_GAGGENAU_v3.html) | [图片目录](./ABOUT_GAGGENAU_media/) · [图片台账](./ABOUT_GAGGENAU_media/image_ledger.md) |
 | Oikos（Oikos Venezia，约 1.86 万字 / 38 图） | [Markdown 版](./ABOUT_OIKOS_v1.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/ABOUT_OIKOS_v1.html) | [图片目录](./ABOUT_OIKOS_media/) · [图片台账](./ABOUT_OIKOS_media/image_ledger.md) |
+| Rimadesio（约 1.8 万字 / 40 图） | [Markdown 版](./ABOUT_RIMADESIO_v1.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/ABOUT_RIMADESIO_v1.html) | [图片目录](./ABOUT_RIMADESIO_media/) · [图片台账](./ABOUT_RIMADESIO_media/image_ledger.md) |
 
 两部分都支持点击跳转：HTML 版报告顶部为可折叠的弱层级目录（纵向两列、中缝分隔条）；Markdown 版顶部为两列锚点链接目录，可直接跳转到各章节。
 
