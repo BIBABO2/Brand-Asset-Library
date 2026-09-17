@@ -8,8 +8,8 @@
 
 | 文件名称 | 内容与依据 | 来源页面 | 尺寸 |
 |---|---|---|---|
-| Logo_CEADESIGN_black.svg | 官网矢量标识（`images/logoWhite.svg`，按指南 v4.2 第 12.8 节转为深色填充以适配浅色背景；矢量，可任意放大） | https://www.ceadesign.it/ | 矢量（viewBox 137.3×52.6） |
-| Logo_CEADESIGN.png | 官网 `images/logo.png` 位图标识，仅存档备用 | https://www.ceadesign.it/ | 500×184 |
+| Logo_CEADESIGN.png | 官方标识高清位图（黑字标，用于报告封面与网站卡片） | 官方素材／网络检索 | https://www.ceadesign.it/ | 3131×1161 |
+| Logo_CEADESIGN_black.svg | 官网矢量标识（`images/logoWhite.svg` 转深色填充），备用 | https://www.ceadesign.it/ | 矢量（viewBox 137.3×52.6） |
 | C_sede_1.jpg | 公司总部配图（download/41761d5_sede1） | /en/about | 800×500 |
 | C_sede_2.jpg | 总部配图（5fe39d5_sede2） | /en/about | 800×500 |
 | C_sede_3.jpg | 总部配图（d5d1ebe_sede3） | /en/about | 800×500 |

@@ -1,6 +1,6 @@
 # ABOUT CEADESIGN
 
-![CEADESIGN 官方标识](ABOUT_CEADESIGN_media/Logo_CEADESIGN_black.svg)
+![CEADESIGN 官方标识](ABOUT_CEADESIGN_media/Logo_CEADESIGN.png)
 
 目录
 
