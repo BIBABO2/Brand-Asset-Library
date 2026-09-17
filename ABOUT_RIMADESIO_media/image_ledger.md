@@ -7,7 +7,7 @@
 
 | 文件名称 | 内容与依据 | 媒体主机 | 来源页面 | 尺寸 |
 |---|---|---|---|---|
-| Logo_Rimadesio_black.png | 官方字标高清版（裁去四周留白） | 网络检索（官方字标素材） | 按指南 v4.2 第 12.2 节检索取得 | 420×88 |
+| Logo_Rimadesio_black.png | 官方字标高清版（裁去四周留白，用于报告封面与网站卡片） | 官方素材／网络检索 | https://www.rimadesio.it/ | 3200×573 |
 | Logo_Rimadesio.png | 官网结构化数据（JSON-LD schema logo）指定的压缩版标识，仅存档备用 | static.rimadesio.it | https://www.rimadesio.it/it/ | 102×18 |
 | C_HQ_Giussano_showroom.jpg | 总部展厅空间（文件名 Headquarter_Giussano_Showroom1） | static.rimadesio.it | /it/about-us/headquarters/ | 1920×1080 |
 | C_HQ_Giussano_ingresso.jpg | 总部入口（giussano-ingresso-2） | static.rimadesio.it | /it/about-us/headquarters/ | 1920×1280 |
