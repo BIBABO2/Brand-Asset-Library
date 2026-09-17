@@ -161,7 +161,7 @@ function build() {
     brand.updatedAt = report.updatedAt;
     brand.letter = core.letterOf(brand.name || meta.name);
     const logo = core.findLogo(report.brandKey);
-    if (logo) brand.logo = logo;
+    if (!brand.logo && logo) brand.logo = logo; /* 显式指定的 LOGO 优先，未被指定时才自动识别 */
     brand.wordCount = core.countWords(md);
     brand.imageCount = (md.match(/!\[[^\]]*\]\([^)]*\)/g) || []).length;
 
