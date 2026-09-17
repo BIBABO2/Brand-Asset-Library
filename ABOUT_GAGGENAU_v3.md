@@ -2,8 +2,6 @@
 
 ![Gaggenau 官方标识](ABOUT_GAGGENAU_media/Logo_Gaggenau_black.png)
 
-*图：Gaggenau 官方标识。图源：Gaggenau 官网素材库。*
-
 目录
 
 |  |  |

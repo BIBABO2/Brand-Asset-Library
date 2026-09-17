@@ -2,8 +2,6 @@
 
 ![Oikos 官方标识](ABOUT_OIKOS_media/Logo_Oikos_color.png)
 
-*图：Oikos 官方标识（红灰配色，左侧为图形标记），字标下方为意大利语说明"Architetture d'ingresso"。图源：Oikos 官网素材库。*
-
 目录
 
 |  |  |

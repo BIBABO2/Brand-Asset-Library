@@ -39,6 +39,8 @@ for (let i = 1; i < lines.length; i++) {
 if (blankIssues) problems.push('标题前缺空行: ' + blankIssues + ' 处');
 
 const captions = (md.match(/^\*图.*\*$/gm) || []).length;
+const logoCaptions = (md.match(/!\[[^\]]*\]\([^)]*Logo_[^)]*\)\r?\n\r?\n\*图[^\n]*\*/g) || []).length;
+if (logoCaptions) problems.push('品牌 logo 图不应配图注: ' + logoCaptions + ' 处');
 const notes = (md.match(/^> 术语注释/gm) || []).length;
 
 let htmlSummary = '(未找到 HTML 文件)';

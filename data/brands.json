@@ -110,9 +110,9 @@
       "report": "ABOUT_GAGGENAU_v3.md",
       "reportHtml": "ABOUT_GAGGENAU_v3.html",
       "logo": "ABOUT_GAGGENAU_media/Logo_Gaggenau_black.png",
-      "updatedAt": "2026-09-10",
+      "updatedAt": "2026-09-17",
       "letter": "G",
-      "wordCount": 11657,
+      "wordCount": 11643,
       "imageCount": 34
     },
     {
@@ -133,7 +133,7 @@
       "logo": "ABOUT_OIKOS_media/Logo_Oikos_color.png",
       "updatedAt": "2026-09-17",
       "letter": "O",
-      "wordCount": 19576,
+      "wordCount": 19538,
       "imageCount": 38
     },
     {
@@ -154,7 +154,7 @@
       "logo": "ABOUT_RIMADESIO_media/Logo_Rimadesio_black.png",
       "updatedAt": "2026-09-17",
       "letter": "R",
-      "wordCount": 18632,
+      "wordCount": 18576,
       "imageCount": 40
     }
   ]
