@@ -209,8 +209,8 @@ if (fs.existsSync(htmlPath)) {
   if (!details) problems.push('HTML 中缺少可折叠目录 <details class="toc">');
   if (isOpen) problems.push('HTML 目录默认处于展开状态（应为默认折叠）');
   if (unresolvedHtml.length) problems.push('HTML 目录锚点无法匹配标题: ' + unresolvedHtml.join(', '));
-  if (/^更新于 \d{4}-\d{2}-\d{2}\s+·\s+基于 v\d+\.\d+/m.test(md) && !/class="meta-update"/.test(html)) {
-    problems.push('HTML 中更新标注行未渲染为灰色小号（缺少 .meta-update 样式）');
+  if (/^更新于 \d{4}-\d{2}-\d{2}\s+·\s+基于 v\d+\.\d+/m.test(md) && /更新于 \d{4}-\d{2}-\d{2}/.test(html)) {
+    problems.push('HTML 中不应出现文档更新标注行（该行仅保留在 Markdown 源文件）');
   }
   htmlSummary = '标题锚点 ' + ids.length + ' · 目录链接 ' + tocHrefs.length + ' · 未匹配 ' + unresolvedHtml.length +
     ' · 默认折叠 ' + (isOpen ? '否' : '是') + ' · 内嵌图片 ' + dataUris;

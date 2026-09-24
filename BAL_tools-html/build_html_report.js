@@ -56,8 +56,8 @@ if (firstH2 > -1 && entries.length) {
   body = head + tocHtml + tail;
 }
 
-// 文档更新标注行（顶格）：渲染为灰色小号
-body = body.replace(/<p>(更新于 \d{4}-\d{2}-\d{2}\s+·\s+基于 v\d+\.\d+)<\/p>/g, '<p class="meta-update">$1</p>');
+// 文档更新标注行只存在于 Markdown 源文件（用于版本追溯）：单文件 HTML 报告不显示
+body = body.replace(/<p>\s*更新于 \d{4}-\d{2}-\d{2}\s*·\s*基于 v\d+\.\d+\s*<\/p>\s*/g, '');
 
 body = body.replace(/src="([^"]+)"/g, (m, src) => {
   if (/^(https?:|data:)/i.test(src)) return m;
@@ -84,7 +84,6 @@ const css = "body{font-family:-apple-system,'PingFang SC','Microsoft YaHei','Seg
 "code{background:#f2f3f5;border-radius:4px;padding:2px 5px;font-family:Consolas,Menlo,monospace;font-size:0.9em}\n" +
 "pre{background:#f6f8fa;padding:14px;border-radius:6px;overflow:auto}\n" +
 "hr{border:none;border-top:1px solid #eaeaea;margin:2em 0}\n" +
-"p.meta-update{color:#8a8a8a;font-size:0.9em;line-height:1.6;margin:0 0 1.2em}\n" +
 "ul,ol{padding-left:1.5em}\n" +
 "details.toc{margin:1.4em 0 2.2em;font-size:0.85em}\n" +
 "details.toc summary{cursor:pointer;color:#777;width:fit-content;padding:6px 16px;border:1px solid #ececec;border-radius:999px;background:#fafafa;list-style:none;user-select:none}\n" +
