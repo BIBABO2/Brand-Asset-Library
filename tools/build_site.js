@@ -121,7 +121,7 @@ function writeFontsCss() {
 function build() {
   const hasDisplayFont = writeFontsCss();
   console.log(hasDisplayFont ? '展示字体：@font-face 已生成（BrandDisplay / Erotique）' : '展示字体：未检测到字体文件，使用系统回退');
-  const reports = core.scanReports(ROOT);
+  const reports = core.scanReports(core.REPORTS_MD_DIR);
   const latest = core.latestPerBrand(reports);
   if (!latest.length) {
     console.error('未找到任何 ABOUT_<品牌>_v<版本>.md 报告。');
@@ -159,7 +159,7 @@ function build() {
     if (!brand.tagline && meta.tagline) brand.tagline = meta.tagline;
 
     const media = core.listMedia(report.brandKey);
-    brand.report = report.file;
+    brand.report = 'BAL_reports_md/' + report.file;
     brand.updatedAt = report.updatedAt;
     brand.letter = core.letterOf(brand.name || meta.name);
     const logo = core.findLogo(report.brandKey);
@@ -167,9 +167,9 @@ function build() {
     brand.wordCount = core.countWords(md);
     brand.imageCount = (md.match(/!\[[^\]]*\]\([^)]*\)/g) || []).length;
 
-    const singleHtml = path.join(ROOT, report.file.replace(/\.md$/i, '.html'));
+    const singleHtml = path.join(core.HTML_DIR, report.file.replace(/\.md$/i, '.html'));
     const hasSingleHtml = fs.existsSync(singleHtml);
-    if (hasSingleHtml) brand.reportHtml = report.file.replace(/\.md$/i, '.html');
+    if (hasSingleHtml) brand.reportHtml = 'BAL_reports_html/' + report.file.replace(/\.md$/i, '.html');
     else delete brand.reportHtml;
 
     const article = core.markdownToArticleHtml(md, { mediaDir: core.mediaDirFor(report.brandKey) });

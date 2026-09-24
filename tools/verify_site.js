@@ -48,7 +48,7 @@ function staticChecks() {
   const brands = JSON.parse(fs.readFileSync(core.BRANDS_FILE, 'utf8'));
   ok('data/brands.json 可解析（' + brands.brands.length + ' 个品牌、' + brands.categories.length + ' 个分类）');
 
-  const reports = core.latestPerBrand(core.scanReports(ROOT));
+  const reports = core.latestPerBrand(core.scanReports(core.REPORTS_MD_DIR));
   const reportSlugs = new Set(reports.map(r => r.slug));
   reports.forEach(r => {
     if (!brands.brands.some(b => b.slug === r.slug)) bad('报告缺少品牌条目：' + r.file);

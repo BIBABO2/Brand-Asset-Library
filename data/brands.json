@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-17",
+  "updatedAt": "2026-09-24",
   "categories": [
     {
       "id": "tools-industry",
@@ -108,13 +108,13 @@
         "CEA Design",
         "CEA"
       ],
-      "report": "ABOUT_CEADESIGN_v1.md",
-      "reportHtml": "ABOUT_CEADESIGN_v1.html",
-      "logo": "ABOUT_CEADESIGN_media/Logo_CEADESIGN.png",
-      "updatedAt": "2026-09-17",
+      "report": "BAL_reports_md/ABOUT_CEADESIGN_v3.md",
+      "reportHtml": "BAL_reports_html/ABOUT_CEADESIGN_v3.html",
+      "logo": "BAL_media/ABOUT_CEADESIGN_media/Logo_CEADESIGN.png",
+      "updatedAt": "2026-09-24",
       "letter": "C",
-      "wordCount": 17175,
-      "imageCount": 37
+      "wordCount": 18942,
+      "imageCount": 103
     },
     {
       "slug": "gaggenau",
@@ -129,10 +129,10 @@
         "嘉格纳",
         "Gaggenau"
       ],
-      "report": "ABOUT_GAGGENAU_v3.md",
-      "reportHtml": "ABOUT_GAGGENAU_v3.html",
-      "logo": "ABOUT_GAGGENAU_media/Logo_Gaggenau_black.png",
-      "updatedAt": "2026-09-17",
+      "report": "BAL_reports_md/ABOUT_GAGGENAU_v3.md",
+      "reportHtml": "BAL_reports_html/ABOUT_GAGGENAU_v3.html",
+      "logo": "BAL_media/ABOUT_GAGGENAU_media/Logo_Gaggenau_black.png",
+      "updatedAt": "2026-09-23",
       "letter": "G",
       "wordCount": 11643,
       "imageCount": 34
@@ -150,9 +150,9 @@
         "Gessi",
         "GESSI"
       ],
-      "report": "ABOUT_GESSI_v1.md",
-      "logo": "ABOUT_GESSI_media/Logo_Gessi.png",
-      "updatedAt": "2026-09-17",
+      "report": "BAL_reports_md/ABOUT_GESSI_v1.md",
+      "logo": "BAL_media/ABOUT_GESSI_media/Logo_Gessi.png",
+      "updatedAt": "2026-09-23",
       "letter": "G",
       "wordCount": 15625,
       "imageCount": 32
@@ -170,10 +170,10 @@
         "Oikos Venezia",
         "奥克斯门业"
       ],
-      "report": "ABOUT_OIKOS_v1.md",
-      "reportHtml": "ABOUT_OIKOS_v1.html",
-      "logo": "ABOUT_OIKOS_media/Logo_Oikos_color.png",
-      "updatedAt": "2026-09-17",
+      "report": "BAL_reports_md/ABOUT_OIKOS_v1.md",
+      "reportHtml": "BAL_reports_html/ABOUT_OIKOS_v1.html",
+      "logo": "BAL_media/ABOUT_OIKOS_media/Logo_Oikos_color.png",
+      "updatedAt": "2026-09-23",
       "letter": "O",
       "wordCount": 19538,
       "imageCount": 38
@@ -191,10 +191,10 @@
         "Rimadesio",
         "里马德西奥"
       ],
-      "report": "ABOUT_RIMADESIO_v1.md",
-      "reportHtml": "ABOUT_RIMADESIO_v1.html",
-      "logo": "ABOUT_RIMADESIO_media/Logo_Rimadesio_black.png",
-      "updatedAt": "2026-09-17",
+      "report": "BAL_reports_md/ABOUT_RIMADESIO_v1.md",
+      "reportHtml": "BAL_reports_html/ABOUT_RIMADESIO_v1.html",
+      "logo": "BAL_media/ABOUT_RIMADESIO_media/Logo_Rimadesio_black.png",
+      "updatedAt": "2026-09-23",
       "letter": "R",
       "wordCount": 18576,
       "imageCount": 40

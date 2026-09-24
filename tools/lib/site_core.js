@@ -2,7 +2,7 @@
 
 /**
  * 站点共享核心：报告扫描、Markdown 解析、锚点规则、数据读写。
- * 锚点（heading id）规则与根目录 build_html_report.js 完全一致，
+ * 锚点（heading id）规则与 BAL_tools-html/build_html_report.js 完全一致，
  * 以保证站内阅读页、搜索结果与单文件 HTML / Markdown 目录的跳转一致。
  */
 
@@ -14,6 +14,9 @@ const DATA_DIR = path.join(ROOT, 'data');
 const BRANDS_FILE = path.join(DATA_DIR, 'brands.json');
 const SEARCH_DIR = path.join(DATA_DIR, 'search');
 const REPORTS_DIR = path.join(ROOT, 'reports');
+const REPORTS_MD_DIR = path.join(ROOT, 'BAL_reports_md');
+const MEDIA_ROOT = path.join(ROOT, 'BAL_media');
+const HTML_DIR = path.join(ROOT, 'BAL_reports_html');
 
 /* ------------------------------------------------------------------ */
 /* 运行库加载（marked / playwright 等由 Codex 运行环境自带）            */
@@ -52,7 +55,7 @@ function getMarked() {
 }
 
 /* ------------------------------------------------------------------ */
-/* 锚点规则（与 build_html_report.js 保持一致，勿单独修改）             */
+/* 锚点规则（与 BAL_tools-html/build_html_report.js 保持一致，勿单独修改）             */
 /* ------------------------------------------------------------------ */
 
 function createSlugger() {
@@ -75,7 +78,7 @@ function createSlugger() {
 const REPORT_RE = /^ABOUT_(.+?)_v(\d+)\.md$/i;
 
 function scanReports(root) {
-  const base = root || ROOT;
+  const base = root || REPORTS_MD_DIR;
   const found = [];
   for (const entry of fs.readdirSync(base, { withFileTypes: true })) {
     if (!entry.isFile()) continue;
@@ -195,11 +198,11 @@ function letterOf(name) {
 /* ------------------------------------------------------------------ */
 
 function mediaDirFor(brandKey) {
-  return 'ABOUT_' + brandKey + '_media';
+  return 'BAL_media/ABOUT_' + brandKey + '_media';
 }
 
 function findLogo(brandKey) {
-  const dir = path.join(ROOT, mediaDirFor(brandKey));
+  const dir = path.join(MEDIA_ROOT, 'ABOUT_' + brandKey + '_media');
   if (!fs.existsSync(dir)) return '';
   const files = fs.readdirSync(dir).filter(f => /^logo[_\-.\s]/i.test(f) && /\.(png|jpe?g|webp|svg)$/i.test(f));
   if (!files.length) return '';
@@ -208,7 +211,7 @@ function findLogo(brandKey) {
 }
 
 function listMedia(brandKey) {
-  const dir = path.join(ROOT, mediaDirFor(brandKey));
+  const dir = path.join(MEDIA_ROOT, 'ABOUT_' + brandKey + '_media');
   if (!fs.existsSync(dir)) return [];
   return fs.readdirSync(dir).filter(f => /\.(png|jpe?g|webp|svg)$/i.test(f));
 }
@@ -490,6 +493,9 @@ module.exports = {
   BRANDS_FILE,
   SEARCH_DIR,
   REPORTS_DIR,
+  REPORTS_MD_DIR,
+  MEDIA_ROOT,
+  HTML_DIR,
   DEFAULT_CATEGORIES,
   loadRuntimeModule,
   getMarked,
