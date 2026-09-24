@@ -10,6 +10,8 @@
 | Oikos（Oikos Venezia，约 1.86 万字 / 38 图） | [Markdown 版](./BAL_reports_md/ABOUT_OIKOS_v1.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/BAL_reports_html/ABOUT_OIKOS_v1.html) | [图片目录](./BAL_media/ABOUT_OIKOS_media/) · [图片台账](./BAL_media/ABOUT_OIKOS_media/image_ledger.md) |
 | Rimadesio（约 1.8 万字 / 40 图） | [Markdown 版](./BAL_reports_md/ABOUT_RIMADESIO_v1.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/BAL_reports_html/ABOUT_RIMADESIO_v1.html) | [图片目录](./BAL_media/ABOUT_RIMADESIO_media/) · [图片台账](./BAL_media/ABOUT_RIMADESIO_media/image_ledger.md) |
 | CEADESIGN（v3，约 1.9 万字 / 103 图） | [Markdown 版](./BAL_reports_md/ABOUT_CEADESIGN_v3.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/BAL_reports_html/ABOUT_CEADESIGN_v3.html) | [图片目录](./BAL_media/ABOUT_CEADESIGN_media/) · [图片台账](./BAL_media/ABOUT_CEADESIGN_media/image_ledger.md) |
+| Gessi（约 1.56 万字 / 32 图） | [Markdown 版](./BAL_reports_md/ABOUT_GESSI_v1.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/BAL_reports_html/ABOUT_GESSI_v1.html) | [图片目录](./BAL_media/ABOUT_GESSI_media/) · [图片台账](./BAL_media/ABOUT_GESSI_media/image_ledger.md) |
+| Artemide（约 1.22 万字 / 17 图） | [Markdown 版](./BAL_reports_md/ABOUT_ARTEMIDE_v1.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/BAL_reports_html/ABOUT_ARTEMIDE_v1.html) | [图片目录](./BAL_media/ABOUT_ARTEMIDE_media/) · [图片台账](./BAL_media/ABOUT_ARTEMIDE_media/image_ledger.md) |
 
 两部分都支持点击跳转：HTML 版报告顶部为可折叠的弱层级目录（纵向两列、中缝分隔条）；Markdown 版顶部为两列锚点链接目录，可直接跳转到各章节。
 
