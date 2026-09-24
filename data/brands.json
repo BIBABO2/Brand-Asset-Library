@@ -179,6 +179,28 @@
       "imageCount": 32
     },
     {
+      "slug": "muuto",
+      "name": "Muuto",
+      "nameCn": "穆托",
+      "website": "https://muuto.com",
+      "tagline": "丹麦北欧设计家具与灯具品牌，隶属 MillerKnoll",
+      "categories": [
+        "home-furniture-lifestyle",
+        "lighting"
+      ],
+      "aliases": [
+        "Muuto",
+        "穆托",
+        "muutos"
+      ],
+      "report": "BAL_reports_md/ABOUT_MUUTO_v1.md",
+      "logo": "BAL_media/ABOUT_MUUTO_media/Logo_MUUTO.svg",
+      "updatedAt": "2026-09-24",
+      "letter": "M",
+      "wordCount": 13780,
+      "imageCount": 39
+    },
+    {
       "slug": "oikos",
       "name": "Oikos",
       "nameCn": "Oikos Venezia",
