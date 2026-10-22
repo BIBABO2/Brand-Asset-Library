@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-24",
+  "updatedAt": "2026-10-22",
   "categories": [
     {
       "id": "tools-industry",
@@ -108,12 +108,12 @@
         "阿特米德"
       ],
       "report": "BAL_reports_md/ABOUT_ARTEMIDE_v1.md",
-      "reportHtml": "BAL_reports_html/ABOUT_ARTEMIDE_v1.html",
       "logo": "BAL_media/ABOUT_ARTEMIDE_media/Logo_Artemide_wordmark_1600.png",
       "updatedAt": "2026-09-24",
       "letter": "A",
       "wordCount": 12189,
-      "imageCount": 17
+      "imageCount": 17,
+      "reportHtml": "BAL_reports_html/ABOUT_ARTEMIDE_v1.html"
     },
     {
       "slug": "ceadesign",
@@ -136,6 +136,27 @@
       "letter": "C",
       "wordCount": 18942,
       "imageCount": 103
+    },
+    {
+      "slug": "flos",
+      "name": "FLOS",
+      "nameCn": "",
+      "website": "https://www.flos.com",
+      "tagline": "意大利设计师照明品牌，现属 Flos B&B Italia Group",
+      "categories": [
+        "lighting"
+      ],
+      "aliases": [
+        "FLOS",
+        "Flos"
+      ],
+      "report": "BAL_reports_md/ABOUT_FLOS_v1.md",
+      "reportHtml": "BAL_reports_html/ABOUT_FLOS_v1.html",
+      "logo": "BAL_media/ABOUT_FLOS_media/Logo_Flos_wordmark_1600.png",
+      "updatedAt": "2026-10-22",
+      "letter": "F",
+      "wordCount": 20652,
+      "imageCount": 78
     },
     {
       "slug": "gaggenau",
@@ -177,6 +198,27 @@
       "letter": "G",
       "wordCount": 15625,
       "imageCount": 32
+    },
+    {
+      "slug": "luceplan",
+      "name": "Luceplan",
+      "nameCn": "",
+      "website": "https://www.luceplan.com",
+      "tagline": "意大利设计师照明品牌，以工程优先与光学理性为方法论",
+      "categories": [
+        "lighting"
+      ],
+      "aliases": [
+        "Luceplan"
+      ],
+      "report": "BAL_reports_md/ABOUT_LUCEPLAN_v1.md",
+      "reportHtml": "BAL_reports_html/ABOUT_LUCEPLAN_v1.html",
+      "logo": "BAL_media/ABOUT_LUCEPLAN_media/Logo_Luceplan_wordmark.svg",
+      "updatedAt": "2026-10-22",
+      "letter": "L",
+      "wordCount": 17049,
+      "imageCount": 80,
+      "logoScale": 1.8
     },
     {
       "slug": "muuto",
