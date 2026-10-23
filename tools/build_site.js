@@ -235,7 +235,8 @@ function build() {
     brand.imageCount = (md.match(/!\[[^\]]*\]\([^)]*\)/g) || []).length;
 
     const singleHtml = path.join(core.HTML_DIR, report.file.replace(/\.md$/i, '.html'));
-    const hasSingleHtml = fs.existsSync(singleHtml);
+    /* GitHub 单文件上限 100 MB：超过 95 MB 的单文件报告不挂下载入口（避免线上 404 与大文件推送失败） */
+    const hasSingleHtml = fs.existsSync(singleHtml) && fs.statSync(singleHtml).size <= 95 * 1024 * 1024;
     if (hasSingleHtml) brand.reportHtml = 'BAL_reports_html/' + report.file.replace(/\.md$/i, '.html');
     else delete brand.reportHtml;
 

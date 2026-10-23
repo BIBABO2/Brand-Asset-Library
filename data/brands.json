@@ -304,6 +304,26 @@
       "letter": "R",
       "wordCount": 18576,
       "imageCount": 40
+    },
+    {
+      "slug": "vipp",
+      "name": "Vipp",
+      "nameCn": "维普",
+      "website": "https://vipp.com",
+      "tagline": "丹麦家族设计品牌，以钢制脚踏垃圾桶起家的完整生活方式体系",
+      "categories": [
+        "home-furniture-lifestyle"
+      ],
+      "aliases": [
+        "Vipp",
+        "维普"
+      ],
+      "report": "BAL_reports_md/ABOUT_VIPP_v1.md",
+      "logo": "BAL_media/ABOUT_VIPP_media/Logo_VIPP_1600.png",
+      "updatedAt": "2026-10-23",
+      "letter": "V",
+      "wordCount": 16325,
+      "imageCount": 74
     }
   ]
 }

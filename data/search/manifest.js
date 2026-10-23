@@ -1,1 +1,1 @@
-window.BAL_SEARCH_MANIFEST = ["artemide","cassina","ceadesign","flos","gaggenau","gessi","luceplan","muuto","oikos","rimadesio"];
+window.BAL_SEARCH_MANIFEST = ["artemide","cassina","ceadesign","flos","gaggenau","gessi","luceplan","muuto","oikos","rimadesio","vipp"];
