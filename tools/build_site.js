@@ -66,7 +66,7 @@ function applyLogoScale(article) {
   if (!size || !size.width || !size.height) return article;
   const aspect = size.width / size.height;
   const pct = Math.min(100, (aspect < 3 ? aspect / 5 : aspect / 10) * 100);
-  const tag = m[0].replace(/\s+style="[^"]*"/, '').replace(/>$/, ' style="width:' + pct.toFixed(1) + '%;max-width:100%;max-height:none">');
+  const tag = m[0].replace(/\s+style="[^"]*"/, '').replace(/>$/, ' style="width:' + pct.toFixed(1) + '%;max-width:100%;max-height:none;border-radius:0">');
   return article.replace(m[0], tag);
 }
 
