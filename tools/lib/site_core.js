@@ -228,7 +228,7 @@ function markdownToArticleHtml(md, opts) {
 
   // 文档更新标注行只存在于 Markdown 源文件（用于版本追溯），站内阅读页不显示；
   // 页面上的更新时间由站点元信息（报告日期 + 图片数）呈现。
-  body = body.replace(/<p>\s*更新于 \d{4}-\d{2}-\d{2}\s*·\s*基于 v\d+\.\d+\s*<\/p>\s*/g, '');
+  body = body.replace(/<p>\s*更新于 \d{4}-\d{2}-\d{2}\s*[·・]\s*基于 v\d+(?:\.\d+)?\s*<\/p>\s*/g, '');
 
   body = body.replace(/<h([1-3])>([\s\S]*?)<\/h\1>/g, (m, lvl, inner) => {
     const text = inner.replace(/<[^>]+>/g, '');
