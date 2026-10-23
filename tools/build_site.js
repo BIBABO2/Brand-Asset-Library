@@ -41,6 +41,17 @@ function imagePixelSize(file) {
       if (vb) return { width: Number(vb[3]), height: Number(vb[4]) };
       return null;
     }
+    if (ext === '.webp') {
+      if (buf.toString('ascii', 0, 4) !== 'RIFF' || buf.toString('ascii', 8, 12) !== 'WEBP') return null;
+      const chunk = buf.toString('ascii', 12, 16);
+      if (chunk === 'VP8X') return { width: buf.readUIntLE(24, 3) + 1, height: buf.readUIntLE(27, 3) + 1 };
+      if (chunk === 'VP8 ') return { width: buf.readUInt16LE(26) & 0x3fff, height: buf.readUInt16LE(28) & 0x3fff };
+      if (chunk === 'VP8L') {
+        const bits = buf.readUInt32LE(21);
+        return { width: (bits & 0x3fff) + 1, height: ((bits >> 14) & 0x3fff) + 1 };
+      }
+      return null;
+    }
     if (ext === '.jpg' || ext === '.jpeg') {
       let i = 2;
       while (i < buf.length) {
@@ -68,6 +79,18 @@ function applyLogoScale(article) {
   const pct = Math.min(100, (aspect < 3 ? aspect / 5 : aspect / 10) * 100);
   const tag = m[0].replace(/\s+style="[^"]*"/, '').replace(/>$/, ' style="width:' + pct.toFixed(1) + '%;max-width:100%;max-height:none;border-radius:0">');
   return article.replace(m[0], tag);
+}
+
+/* 给正文图片写入真实宽高，配合懒加载提前占位，避免目录锚点跳转后被图片撑开而错位 */
+function reserveImageSizes(article) {
+  return article.replace(/<img\b[^>]*>/g, (tag) => {
+    if (/\bwidth="[^"]*"/.test(tag) && /\bheight="[^"]*"/.test(tag)) return tag;
+    const src = (/src="([^"]+)"/.exec(tag) || [])[1];
+    if (!src || /^(https?:|data:)/i.test(src)) return tag;
+    const size = imagePixelSize(path.resolve(core.REPORTS_DIR, src));
+    if (!size || !size.width || !size.height) return tag;
+    return tag.replace(/\s*\/?>$/, ' width="' + size.width + '" height="' + size.height + '">');
+  });
 }
 
 function reportPage(opts) {
@@ -216,7 +239,7 @@ function build() {
     if (hasSingleHtml) brand.reportHtml = 'BAL_reports_html/' + report.file.replace(/\.md$/i, '.html');
     else delete brand.reportHtml;
 
-    const article = applyLogoScale(core.markdownToArticleHtml(md, { mediaDir: core.mediaDirFor(report.brandKey) }));
+    const article = applyLogoScale(reserveImageSizes(core.markdownToArticleHtml(md, { mediaDir: core.mediaDirFor(report.brandKey) })));
     const html = reportPage({
       brand: brand,
       article: article,
