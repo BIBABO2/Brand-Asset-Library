@@ -116,6 +116,27 @@
       "reportHtml": "BAL_reports_html/ABOUT_ARTEMIDE_v1.html"
     },
     {
+      "slug": "cassina",
+      "name": "Cassina",
+      "nameCn": "卡西纳",
+      "website": "https://www.cassina.com",
+      "tagline": "意大利高端设计家具品牌，以现代主义经典再版与当代设计双线并行",
+      "categories": [
+        "home-furniture-lifestyle"
+      ],
+      "aliases": [
+        "Cassina",
+        "卡西纳"
+      ],
+      "report": "BAL_reports_md/ABOUT_CASSINA_v1.md",
+      "reportHtml": "BAL_reports_html/ABOUT_CASSINA_v1.html",
+      "logo": "BAL_media/ABOUT_CASSINA_media/Logo_Cassina_wordmark_1600.png",
+      "updatedAt": "2026-10-23",
+      "letter": "C",
+      "wordCount": 18414,
+      "imageCount": 80
+    },
+    {
       "slug": "ceadesign",
       "name": "CEADESIGN",
       "nameCn": "",
