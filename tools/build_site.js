@@ -26,6 +26,50 @@ function tagHtml(cat) {
   return '<span class="tag" style="--tag-bg:' + esc(cat.bg) + ';--tag-fg:' + esc(cat.fg) + '">' + esc(cat.name) + '</span>';
 }
 
+/* 读取图片像素尺寸（PNG / JPEG / SVG），用于计算正文标识的显示比例 */
+function imagePixelSize(file) {
+  try {
+    const buf = fs.readFileSync(file);
+    const ext = path.extname(file).toLowerCase();
+    if (ext === '.png' && buf.length > 24) return { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) };
+    if (ext === '.svg') {
+      const text = buf.toString('utf8');
+      const w = /\bwidth="([\d.]+)(?:px)?"/i.exec(text);
+      const h = /\bheight="([\d.]+)(?:px)?"/i.exec(text);
+      if (w && h) return { width: Number(w[1]), height: Number(h[1]) };
+      const vb = /viewBox="([\d.\-]+)[\s,]+([\d.\-]+)[\s,]+([\d.\-]+)[\s,]+([\d.\-]+)"/i.exec(text);
+      if (vb) return { width: Number(vb[3]), height: Number(vb[4]) };
+      return null;
+    }
+    if (ext === '.jpg' || ext === '.jpeg') {
+      let i = 2;
+      while (i < buf.length) {
+        if (buf[i] !== 0xFF) { i += 1; continue; }
+        const marker = buf[i + 1];
+        if (marker >= 0xC0 && marker <= 0xCF && marker !== 0xC4 && marker !== 0xC8 && marker !== 0xCC) {
+          return { height: buf.readUInt16BE(i + 5), width: buf.readUInt16BE(i + 7) };
+        }
+        i += 2 + buf.readUInt16BE(i + 2);
+      }
+    }
+  } catch (err) { /* 忽略 */ }
+  return null;
+}
+
+/* 正文品牌标识：高度控制在正文宽度的 1/10–1/5。
+   宽高比 < 3 用最大尺寸（高 = W/5）；≥ 3 用最小尺寸（高 = W/10）；
+   按最小尺寸算出宽度超过正文宽度时（宽高比 > 10），与正文等宽。 */
+function applyLogoScale(article) {
+  const m = /<img[^>]*src="([^"]*Logo_[^"]*)"[^>]*>/.exec(article);
+  if (!m) return article;
+  const size = imagePixelSize(path.resolve(core.REPORTS_DIR, m[1]));
+  if (!size || !size.width || !size.height) return article;
+  const aspect = size.width / size.height;
+  const pct = Math.min(100, (aspect < 3 ? aspect / 5 : aspect / 10) * 100);
+  const tag = m[0].replace(/\s+style="[^"]*"/, '').replace(/>$/, ' style="width:' + pct.toFixed(1) + '%;max-width:100%;max-height:none">');
+  return article.replace(m[0], tag);
+}
+
 function reportPage(opts) {
   const brand = opts.brand;
   const categories = opts.categories;
@@ -172,7 +216,7 @@ function build() {
     if (hasSingleHtml) brand.reportHtml = 'BAL_reports_html/' + report.file.replace(/\.md$/i, '.html');
     else delete brand.reportHtml;
 
-    const article = core.markdownToArticleHtml(md, { mediaDir: core.mediaDirFor(report.brandKey) });
+    const article = applyLogoScale(core.markdownToArticleHtml(md, { mediaDir: core.mediaDirFor(report.brandKey) }));
     const html = reportPage({
       brand: brand,
       article: article,

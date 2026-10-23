@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-22",
+  "updatedAt": "2026-10-23",
   "categories": [
     {
       "id": "tools-industry",
@@ -214,11 +214,11 @@
       "report": "BAL_reports_md/ABOUT_LUCEPLAN_v1.md",
       "reportHtml": "BAL_reports_html/ABOUT_LUCEPLAN_v1.html",
       "logo": "BAL_media/ABOUT_LUCEPLAN_media/Logo_Luceplan_wordmark.svg",
+      "logoScale": 1.8,
       "updatedAt": "2026-10-22",
       "letter": "L",
       "wordCount": 17049,
-      "imageCount": 80,
-      "logoScale": 1.8
+      "imageCount": 80
     },
     {
       "slug": "muuto",
