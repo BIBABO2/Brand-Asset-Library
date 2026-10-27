@@ -15,6 +15,11 @@
 | Luceplan（约 1.70 万字 / 80 图） | [Markdown 版](./BAL_reports_md/ABOUT_LUCEPLAN_v1.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/BAL_reports_html/ABOUT_LUCEPLAN_v1.html) | [图片目录](./BAL_media/ABOUT_LUCEPLAN_media/) · [图片台账](./BAL_media/ABOUT_LUCEPLAN_media/image_ledger.md) |
 | Cassina（约 1.84 万字 / 80 图） | [Markdown 版](./BAL_reports_md/ABOUT_CASSINA_v1.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/BAL_reports_html/ABOUT_CASSINA_v1.html) | [图片目录](./BAL_media/ABOUT_CASSINA_media/) · [图片台账](./BAL_media/ABOUT_CASSINA_media/image_ledger.md) |
 | Vipp（约 1.63 万字 / 74 图） | [Markdown 版](./BAL_reports_md/ABOUT_VIPP_v1.md)（单文件 HTML 100.6 MB，超出 GitHub 单文件上限，暂仅本地保留） | [图片目录](./BAL_media/ABOUT_VIPP_media/) · [图片台账](./BAL_media/ABOUT_VIPP_media/image_ledger.md) |
+| Alessi（约 1.33 万字 / 61 图） | [Markdown 版](./BAL_reports_md/ABOUT_ALESSI_v1.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/BAL_reports_html/ABOUT_ALESSI_v1.html) | [图片目录](./BAL_media/ABOUT_ALESSI_media/) · [图片台账](./BAL_media/ABOUT_ALESSI_media/image_ledger.md) |
+| Elica（约 1.65 万字 / 75 图） | [Markdown 版](./BAL_reports_md/ABOUT_ELICA_v1.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/BAL_reports_html/ABOUT_ELICA_v1.html) | [图片目录](./BAL_media/ABOUT_ELICA_media/) · [图片台账](./BAL_media/ABOUT_ELICA_media/image_ledger.md) |
+| THG Paris（约 2.02 万字 / 97 图） | [Markdown 版](./BAL_reports_md/ABOUT_THG_v1.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/BAL_reports_html/ABOUT_THG_v1.html) | [图片目录](./BAL_media/ABOUT_THG_media/) · [图片台账](./BAL_media/ABOUT_THG_media/image_ledger.md) |
+| USM（约 1.52 万字 / 58 图） | [Markdown 版](./BAL_reports_md/ABOUT_USM_v1.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/BAL_reports_html/ABOUT_USM_v1.html) | [图片目录](./BAL_media/ABOUT_USM_media/) · [图片台账](./BAL_media/ABOUT_USM_media/image_ledger.md) |
+| Vitra（约 1.51 万字 / 74 图） | [Markdown 版](./BAL_reports_md/ABOUT_VITRA_v1.md) · [网页版（在线渲染，推荐转发）](https://raw.githack.com/BIBABO2/Brand-Asset-Library/main/BAL_reports_html/ABOUT_VITRA_v1.html) | [图片目录](./BAL_media/ABOUT_VITRA_media/) · [图片台账](./BAL_media/ABOUT_VITRA_media/image_ledger.md) |
 
 两部分都支持点击跳转：HTML 版报告顶部为可折叠的弱层级目录（纵向两列、中缝分隔条）；Markdown 版顶部为两列锚点链接目录，可直接跳转到各章节。
 

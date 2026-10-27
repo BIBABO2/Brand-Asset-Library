@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-23",
+  "updatedAt": "2026-10-27",
   "categories": [
     {
       "id": "tools-industry",
@@ -95,6 +95,27 @@
   ],
   "brands": [
     {
+      "slug": "alessi",
+      "name": "Alessi",
+      "nameCn": "阿莱西",
+      "website": "https://alessi.com",
+      "tagline": "意大利设计家居品牌，以金属工艺与设计师合作的家居器皿闻名",
+      "categories": [
+        "home-furniture-lifestyle"
+      ],
+      "aliases": [
+        "Alessi",
+        "阿莱西"
+      ],
+      "report": "BAL_reports_md/ABOUT_ALESSI_v1.md",
+      "reportHtml": "BAL_reports_html/ABOUT_ALESSI_v1.html",
+      "logo": "BAL_media/ABOUT_ALESSI_media/Logo_Alessi.svg",
+      "updatedAt": "2026-10-26",
+      "letter": "A",
+      "wordCount": 13344,
+      "imageCount": 61
+    },
+    {
       "slug": "artemide",
       "name": "Artemide",
       "nameCn": "",
@@ -157,6 +178,26 @@
       "letter": "C",
       "wordCount": 18942,
       "imageCount": 103
+    },
+    {
+      "slug": "elica",
+      "name": "Elica",
+      "nameCn": "",
+      "website": "https://www.elica.com",
+      "tagline": "意大利厨房电器公司，以抽油烟机为核心品类",
+      "categories": [
+        "kitchen-appliance"
+      ],
+      "aliases": [
+        "Elica"
+      ],
+      "report": "BAL_reports_md/ABOUT_ELICA_v1.md",
+      "reportHtml": "BAL_reports_html/ABOUT_ELICA_v1.html",
+      "logo": "BAL_media/ABOUT_ELICA_media/Logo_ELICA_current_2024.png",
+      "updatedAt": "2026-10-27",
+      "letter": "E",
+      "wordCount": 16520,
+      "imageCount": 75
     },
     {
       "slug": "flos",
@@ -306,6 +347,48 @@
       "imageCount": 40
     },
     {
+      "slug": "thg",
+      "name": "THG Paris",
+      "nameCn": "",
+      "website": "https://www.thg-paris.com",
+      "tagline": "法国高端卫浴五金品牌，以黄铜本体与手工抛光著称",
+      "categories": [
+        "bathroom"
+      ],
+      "aliases": [
+        "THG",
+        "THG Paris"
+      ],
+      "report": "BAL_reports_md/ABOUT_THG_v1.md",
+      "reportHtml": "BAL_reports_html/ABOUT_THG_v1.html",
+      "logo": "BAL_media/ABOUT_THG_media/Logo_THG_1600_cropped.png",
+      "updatedAt": "2026-10-27",
+      "letter": "T",
+      "wordCount": 20162,
+      "imageCount": 97
+    },
+    {
+      "slug": "usm",
+      "name": "USM",
+      "nameCn": "",
+      "website": "https://www.usm.com",
+      "tagline": "瑞士模块化钢质家具品牌，以 USM Haller 系统闻名",
+      "categories": [
+        "home-furniture-lifestyle"
+      ],
+      "aliases": [
+        "USM",
+        "USM Haller"
+      ],
+      "report": "BAL_reports_md/ABOUT_USM_v1.md",
+      "reportHtml": "BAL_reports_html/ABOUT_USM_v1.html",
+      "logo": "BAL_media/ABOUT_USM_media/Logo_USM_1600.png",
+      "updatedAt": "2026-10-26",
+      "letter": "U",
+      "wordCount": 15199,
+      "imageCount": 58
+    },
+    {
       "slug": "vipp",
       "name": "Vipp",
       "nameCn": "维普",
@@ -323,6 +406,27 @@
       "updatedAt": "2026-10-23",
       "letter": "V",
       "wordCount": 16325,
+      "imageCount": 74
+    },
+    {
+      "slug": "vitra",
+      "name": "Vitra",
+      "nameCn": "维特拉",
+      "website": "https://www.vitra.com",
+      "tagline": "瑞士家具品牌，以现代设计经典与 Vitra Campus 闻名",
+      "categories": [
+        "home-furniture-lifestyle"
+      ],
+      "aliases": [
+        "Vitra",
+        "维特拉"
+      ],
+      "report": "BAL_reports_md/ABOUT_VITRA_v1.md",
+      "reportHtml": "BAL_reports_html/ABOUT_VITRA_v1.html",
+      "logo": "BAL_media/ABOUT_VITRA_media/Logo_Vitra_wordmark.png",
+      "updatedAt": "2026-10-26",
+      "letter": "V",
+      "wordCount": 15135,
       "imageCount": 74
     }
   ]
